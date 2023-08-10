@@ -1,3 +1,2 @@
-# web project
-# Not finished yet
-# Actually not even started yet
+# Web Project about Japanese History and Culture
+# Almost Finished
