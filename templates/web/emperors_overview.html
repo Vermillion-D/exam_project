@@ -1,12 +1,300 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Emperors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('{% static 'japanese_history_background.jpg' %}'), url('{% static 'japanese_history_background.jpg' %}');
+            background-position: left center, right center;
+            background-size: 65% 100%;
+            background-repeat: no-repeat, no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 38%;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .list-item:hover {
+            color: hotpink;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 8%;
+            height: 5%;
+            top: 10%;
+            right: 50px;
+            transform: translateY(-50%);
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #0B0C10;
+            font-weight: bold;
+        }
+
+        .sidebar img {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .ul-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        ul {
+            width: fit-content;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .nav-link-button {
+            color: black;
+            font-size: 1rem;
+            background-color: transparent;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-link-button:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
 </head>
 <body>
+<div class="container">
+    <h1>Japanese Emperors</h1>
+    <h3>Welcome to the page about Japanese Emperors. Here, you'll find information about various emperors who have ruled
+        Japan throughout history.</h3>
+    <div class="content">
+        <div class="ul-container">
+            <ul>
+                <li class="list-item" onclick="scrollToSection('introduction')">1. Introduction to Japanese Emperors
+                </li>
+                <li class="list-item" onclick="scrollToSection('emperor1')">2. Emperor Meiji
+                </li>
+                <li class="list-item" onclick="scrollToSection('emperor2')">3. Emperor Ninkō
+                </li>
+                <li class="list-item" onclick="scrollToSection('emperor3')">4. Emperor Kōkaku
+                </li>
+                <li class="list-item" onclick="scrollToSection('emperor4')">5. Emperor Go-Momozono
+                </li>
+                <li class="list-item" onclick="scrollToSection('emperor5')">6. Emperor Yozei
+                </li>
+                <li class="list-item" onclick="scrollToSection('emperor6')">7. Emperor Sudo
+                </li>
+                <li class="list-item" onclick="scrollToSection('emperor7')">8. Emperor Kammu</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2 id="introduction">1. Introduction</h2>
+    <p>This section provides a brief introduction to the history and significance of Japanese emperors in the country's
+        monarchy.</p>
+
+    <h2 id="emperor1">2. Emperor Meiji</h2>
+    <p><b>Reigned: 1867–1912</b></p><br>
+    <p>Emperor Meiji, also known as Meiji the Great, was a Japanese monarch who ruled from February 1867 until his death
+        in July 1912. The 122nd Emperor of Japan according to the traditional order of succession, he reigned over a
+        period in history that has come to be known as the Meiji period, during which the Empire of Japan witnessed a
+        radical transition from an isolationist feudal state to industrialized world power.<br>
+        When he was born in 1852,
+        Japan was a feudal country without any significant industry. Much of the country’s political and military power
+        was hoarded by the Tokugawa shogunate and the daimyōs, who controlled the country’s’ 250 plus decentralized
+        domains.<br>
+        During his reign, Japan experienced an immense political, economic, and social revolution and became
+        one of the great powers in the world stage. As part of the modern tradition, he received a posthumous name,
+        Emperor Meiji, which was the name of the era coinciding with his reign. He also had a personal name, Mutsuhito,
+        but it was not used in any formal affair. During his lifetime, he was simply referred to as “The Emperor”.</p>
+
+    <h2 id="emperor2">3. Emperor Ninkō</h2>
+    <p><b>Reigned: 1817 – 1846</b></p><br>
+
+    <p>Emperor Ninkō was the 120th Emperor of Japan. His reign spanned the years from 1817 until he died in 1846, and
+        saw a further deterioration of the ruling Shōgun’s power. Famine, corruption and increasing Western interference
+        helped to erode public trust in the government.<br> Emperor Ninkō attempted to revive certain court rituals and
+        practices upon the wishes of his father. His family included fifteen children from various concubines, but only
+        three of them lived to adulthood.<br> His fourth son, Imperial Prince Osahito became the next Emperor upon his
+        death
+        in 1846.</p>
+
+    <h2 id="emperor3">4. Emperor Kōkaku</h2>
+    <p><b>Reigned: 1780 – 1817</b></p><br>
+    <img src="{% static 'emperor_kokaku.jpg' %}"><br><br>
+
+    <p>Emperor Kōkaku was the 119th Emperor of Japan. Kōkaku is the founder of the dynastic imperial branch which
+        currently sits on the throne. Kōkaku had one spouse during his lifetime and six concubines who gave birth to
+        sixteen children.<br> Only one son survived into adulthood and eventually becamee the next Emperor.
+        Genealogically,
+        Kōkaku is the lineal ancestor of all the succeeding Emperors up to Emperor, Naruhito.</p>
+
+
+    <h2 id="emperor4">5. Emperor Go-Momozono</h2>
+    <p><b>Reigned: 1771 – 1779</b></p><br>
+    <img src="{% static 'emperor_go-momozono.jpg' %}"><br><br>
+
+    <p>Emperor Go-Momozono was the 118th Emperor of Japan. He was named after his father Emperor Momozono. Go-Momozono
+        became Emperor in 1771 and events during his reign were confined to a series of natural calamities that occurred
+        in 1772, aside from that, the political situation with the Shōgun was quiet.<br> Things came to a head towards
+        the
+        end of Go-Momozono’s life as it dawned on him that the Emperor had no eligible successor. As a result, he
+        hastily adopted a son on his deathbed who later became the next Emperor.</p>
+
+
+    <h2 id="emperor5">6. Emperor Yozei</h2>
+    <p>The untamed Emperor Yozei must have been an absolute nightmare for the sophisticated, delicate court of the Heian
+        era (794-1185). When Yozei was just nine years old, he was crowned emperor. He had come up with some disturbing
+        ways to amuse himself by the time he was a teenager.<br><br>
+
+        The young monarch revelled in the slaughter of animals, putting dogs against monkeys and ordering snakes to eat
+        frogs. Evidently, he found entertainment outside of animals. Yozei is rumoured to have once randomly slain a
+        courtier with a sword or his own fists, though specifics are sketchy. The murder was covered up by the
+        government, but many of Yozei’s elders may have reached their breaking point because of this.</p>
+
+    <h2 id="emperor6">7. Emperor Sudo</h2>
+    <p>During his lifetime, Emperor Sudo never held the throne. In actuality, he was only crowned an emperor after
+        passing away. When he was alive, Sudo went by the name Prince Sawara, and his older brother, Emperor Kanmu, held
+        the throne.<br> With his eyes set on the throne, Sawara planned the assassination of Fujiwara no Tanetsugu, one
+        of
+        his brother’s favourite bureaucrats. As retribution, Kanmu killed and banished Sawara’s accomplices and sent his
+        shamed brother to live on the faraway island of Awaji.<br><br>
+
+        Before reaching Awaji, Prince Sawara starved to death, but the emperor’s problems didn’t end there. Prince Ate,
+        Kanmu’s heir, also got unwell after Sawara’s passing, and the empress eventually passed away. Prince Sawara’s
+        spirit was said to stalk the imperial family after Prince Ate received no benefit from offerings and prayers.
+        Kanmu anxiously set out to placate his brother’s soul and erected a temple in his memory.</p>
+
+    <h2 id="emperor7">8 Emperor Kammu</h2>
+    <p>The Japanese city of Nara is where Emperor Kammu was born as Kammu Tenno Yamanobe in 737. Heian-Kyo served as the
+        location of the Japanese Capital until 1868, and he was in charge of building it there. Heian period origins
+        were due to Kammu accomplishment (794 – 1185).<br><br>
+
+        In 781, Kammu was installed as the new emperor of Japan, and over the course of several centuries, he rose to
+        become one of the nation’s most powerful leaders. Following his election, the leaders of the Buddhist religion
+        attacked his government because they were granting taxes immunity and had political aspirations.<br><br>
+
+        In order to prevent further Buddhist institutions from being built, as well as to prohibit the donation or sale
+        of property for their construction, Kammu had to act quickly and draft legislation.<br> As a practising
+        Buddhist,
+        Kammu encouraged the expansion of two Buddhist sects because they fought the other Buddhist sects that he
+        perceived as a danger to his governmental authority.</p>
+
+</div>
+
+
+<script>
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        element.scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+
+<div class="sidebar">
+    <a href="{% url 'japanese culture with profile' %}">
+        <img src="{% static 'japanese_culture.jpg' %}" alt="Japanese Culture"> Japanese Culture
+    </a>
+    <a href="{% url 'modern japan with profile' %}">
+        <img src="{% static 'modern_japan_sidebar.jpg' %}" alt="Modern Japan"> Modern Japan
+    </a>
+    <a href="{% url 'japanese history with profile' %}">
+        <img src="{% static 'Japanese_History.jpg' %}" alt="Japanese History"> Japanese History
+    </a>
+    <a href="{% url 'shogunates' %}">
+        <img src="{% static 'Shogun.jpg' %}" alt="Shogunate"> Shogunates
+    </a>
+    <a href="{% url 'samurai' %}">
+        <img src="{% static 'samurai.jpg' %}" alt="Samurai"> Samurai
+    </a>
+    <a href="{% url 'ninjas' %}">
+        <img src="{% static 'ninja.jpg' %}" alt="Ninjas"> Ninjas
+    </a>
+</div>
+
+<nav>
+    <a href="{% url 'about japan with profile' %}">Home</a>
+    <a href="{% url 'profile page' %}">Profile</a>
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{% url 'about japan' %}">
+        <button type="submit" class="nav-link-button">Logout</button>
+    </form>
+</nav>
 
 </body>
 </html>
-
-#TO DO... emperor overview page with redirect links to other pages

@@ -1,13 +1,749 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('{% static 'japanese_history_background.jpg' %}'), url('{% static 'japanese_history_background.jpg' %}'); /* Two instances of the same background image */
+            background-position: left center, right center; /* Position the images on the left and right */
+            background-size: 65% 100%; /* Cut the images vertically */
+            background-repeat: no-repeat, no-repeat; /* Prevent repetition for both images */
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 38%;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        .list-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .list-item:hover {
+            color: hotpink;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 8%;
+            height: 5%;
+            top: 10%;
+            right: 50px;
+            transform: translateY(-50%);
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #0B0C10; /* Adjust text color */
+            font-weight: bold; /* Increase font weight */
+        }
+
+        .sidebar img {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .ul-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        ul {
+            width: fit-content;
+        }
+
+        .flag-image {
+            width: 250px;
+            height: 170px;
+            margin-top: 25px;
+            align-self: flex-start;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+    </style>
 </head>
 <body>
+<div class="container">
+    <div class="content">
+        <div class="ul-container">
+            <h1>Japanese History</h1>
+            <ul>
+                <li class="list-item" onclick="scrollToSection('intro')">1. Introduction to Japanese History</li>
+                <li class="list-item" onclick="scrollToSection('early_japan')">2. Early Japan (until 710)</li>
+                <li class="list-item" onclick="scrollToSection('nara_heian_periods')">3. Nara and Heian Periods
+                    (710-1192)
+                </li>
+                <li class="list-item" onclick="scrollToSection('kamakura_period')">4. Kamakura Period (1192-1333)</li>
+                <li class="list-item" onclick="scrollToSection('muromachi_period')">5. Muromachi Period (1338-1573)</li>
+                <li class="list-item" onclick="scrollToSection('azuchi_momoyama_period')">6. Azuchi-Momoyama Period
+                    (1573-1603)
+                </li>
+                <li class="list-item" onclick="scrollToSection('edo_period')">7. Edo Period (1603-1868)</li>
+                <li class="list-item" onclick="scrollToSection('meiji_period')">8. Meiji Period (1868-1912)</li>
+                <li class="list-item" onclick="scrollToSection('taisho_early_showa_periods')">9. Taisho and Early Showa
+                    Periods (1912-1945)
+                </li>
+                <li class="list-item" onclick="scrollToSection('postwar_period')">10. Postwar Period (since 1945)</li>
+            </ul>
+        </div>
+        <img src="{% static 'Flag_of_Japan.png' %}" class="flag-image">
+    </div>
+    <h2 id="intro">1. Introduction to Japanese History</h2>
+    <p>
+        Japanese history spans thousands of years and has witnessed significant
+        transformations and periods of great cultural, political, and social change.
+        This page provides an overview of key historical periods and events in Japan's history.
+    </p>
 
+    <h2 id="early_japan">2. Early Japan (until 710)</h2>
+    <p>
+        Early Japan, often referred to as the Jomon and Yayoi periods, saw the emergence of
+        early settlements, agriculture, and the introduction of new technologies and practices.
+        It laid the foundation for the formation of the Japanese state and society.<br><br>
+
+        <b>Jōmon period</b><br><br>
+
+        The Jōmon period of prehistoric Japan spans from roughly 13,000 BC. to about 1,000 BC.<br> Japan was inhabited
+        by a predominantly hunter-gatherer culture that reached a considerable degree of sedentism and cultural
+        complexity. The name Jōmon, meaning "cord-marked", was first applied by American scholar Edward S. Morse,
+        who discovered shards of pottery in 1877.<br> The pottery style characteristic of the first phases of Jōmon
+        culture was decorated by impressing cords into the surface of wet clay.<br>Jōmon pottery is generally accepted
+        to be among the oldest in East Asia and the world.<br><br>
+
+        <b>Yayoi period</b><br><br>
+
+        During the Yayoi period, the Yayoi tribes gradually coalesced into a number of kingdoms. In the earliest written
+        work to unambiguously mention Japan, the Book of Han, published in 111 AD, states that one hundred kingdoms
+        comprised Japan, which is referred to as Wa.<br> A later Chinese work of history, the Book of Wei, states that
+        by
+        240 AD, the powerful kingdom of Yamatai, ruled by the female monarch Himiko, had gained ascendancy over the
+        others, though modern historians continue to debate its location and other aspects of its depiction in the Book
+        of Wei.
+
+
+    </p>
+
+    <h2 id="nara_heian_periods">3. Nara and Heian Periods (710-1192)</h2>
+    <p>
+        The Nara and Heian periods were characterized by the development of a centralized imperial
+        government and the flourishing of Japanese culture, including literature, art, and religion.
+        The Heian period is particularly known for the dominance of the imperial court and the rise
+        of the samurai class.<br><br>
+
+        <b>Nara Period</b><br><br>
+
+        During this period, Japan suffered a series of natural disasters, including wildfires, droughts, famines, and
+        outbreaks of disease, such as a smallpox epidemic in 735–737 that killed over a quarter of the population.
+        Emperor Shōmu (r. 724–749) feared his lack of piousness had caused the trouble and so increased the government's
+        promotion of Buddhism, including the construction of the temple Tōdai-ji in 752. The funds to build this
+        temple were raised in part by the influential Buddhist monk Gyōki, and once completed it was used by the Chinese
+        monk Ganjin as an ordination site. Japan nevertheless entered a phase of population decline that continued
+        well into the following Heian period.<br> There was also a serious attempt to overthrow the Imperial house
+        during the middle Nara period. During the 760s, monk Dōkyō tried to establish his own dynasty by the aid of
+        Empress Shōtoku, but after her death in 770 he lost all his power and was exiled. The Fujiwara clan furthermore
+        consolidated its power.<br><br>
+
+        <b>Heian period</b><br><br>
+
+        In 784, the capital moved briefly to Nagaoka-kyō, then again in 794 to Heian-kyō (modern Kyoto), which remained
+        the capital until 1868. Political power within the court soon passed to the Fujiwara clan, a family of court
+        nobles who grew increasingly close to the imperial family through intermarriage. Between 812 and 814 CE, a
+        smallpox epidemic killed almost half of the Japanese population.<br><br>
+
+        In 858, Fujiwara no Yoshifusa had himself declared sesshō ("regent") to the underage emperor. His son Fujiwara
+        no Mototsune created the office of kampaku, which could rule in the place of an adult reigning emperor. Fujiwara
+        no Michinaga, an exceptional statesman who became kampaku in 996, governed during the height of the Fujiwara
+        clan's power and married four of his daughters to emperors, current and future.<br> The Fujiwara clan held
+        on to power until 1086, when Emperor Shirakawa ceded the throne to his son Emperor Horikawa but continued to
+        exercise political power, establishing the practice of cloistered rule, by which the reigning emperor would
+        function as a figurehead while the real authority was held by a retired predecessor behind the scenes.<br><br>
+
+        Throughout the Heian period, the power of the imperial court declined. The court became so self-absorbed with
+        power struggles and with the artistic pursuits of court nobles that it neglected the administration of
+        government outside the capital.<br> The nationalization of land undertaken as part of the ritsuryō state decayed
+        as various noble families and religious orders succeeded in securing tax-exempt status for their private shōen
+        manors.[52] By the eleventh century, more land in Japan was controlled by shōen owners than by the central
+        government. The imperial court was thus deprived of the tax revenue to pay for its national army. In response,
+        the owners of the shōen set up their own armies of samurai warriors.<br> Two powerful noble families that had
+        descended from branches of the imperial family, the Taira and Minamoto clans, acquired large armies and many
+        shōen outside the capital. The central government began to use these two warrior clans to suppress rebellions
+        and piracy. Japan's population stabilized during the late Heian period after hundreds of years of
+        decline.<br><br>
+
+        During the early Heian period, the imperial court successfully consolidated its control over the Emishi people
+        of northern Honshu. Ōtomo no Otomaro was the first man the court granted the title of seii tai-shōgun
+        ("Great Barbarian Subduing General").<br> In 802, seii tai-shōgun Sakanoue no Tamuramaro subjugated the Emishi
+        people, who were led by Aterui.<br> By 1051, members of the Abe clan, who occupied key posts in the regional
+        government, were openly defying the central authority. The court requested the Minamoto clan to engage the Abe
+        clan, whom they defeated in the Former Nine Years' War.<br> The court thus temporarily reasserted its authority
+        in northern Japan. Following another civil war – the Later Three-Year War – Fujiwara no Kiyohira took full
+        power; his family, the Northern Fujiwara, controlled northern Honshu for the next century from their capital
+        Hiraizumi.
+    </p>
+
+    <h2 id="kamakura_period">4. Kamakura Period (1192-1333)</h2>
+    <p>
+        The Kamakura period marked the rise of the samurai warriors and the establishment of the
+        Kamakura shogunate, which held significant political power. It was a time of feudal warfare
+        and the spread of Zen Buddhism.<br><br>
+        Upon the consolidation of power, Minamoto no Yoritomo chose to rule in concert with the Imperial Court in Kyoto.
+        Though Yoritomo set up his own government in Kamakura in the Kantō region located in eastern Japan, its power
+        was legally authorized by the Imperial court in Kyoto in several occasions. In 1192, the emperor declared
+        Yoritomo seii tai-shōgun (征夷大将軍; Eastern Barbarian Subduing Great General), abbreviated as shōgun.<br>
+        Yoritomo's government was called the bakufu (幕府 ("tent government")), referring to the tents where his
+        soldiers encamped. The English term shogunate refers to the bakufu. Japan remained largely under military
+        rule until 1868.<br><br>
+
+        Legitimacy was conferred on the shogunate by the Imperial court, but the shogunate was the de facto rulers of
+        the country. The court maintained bureaucratic and religious functions, and the shogunate welcomed participation
+        by members of the aristocratic class. The older institutions remained intact in a weakened form, and Kyoto
+        remained the official capital. This system has been contrasted with the "simple warrior rule" of the later
+        Muromachi period.<br><br>
+
+        Yoritomo soon turned on Yoshitsune, who was initially harbored by Fujiwara no Hidehira, the grandson of Kiyohira
+        and the de facto ruler of northern Honshu. In 1189, after Hidehira's death, his successor Yasuhira attempted to
+        curry favor with Yoritomo by attacking Yoshitsune's home.<br> Although Yoshitsune was killed, Yoritomo still
+        invaded
+        and conquered the Northern Fujiwara clan's territories. In subsequent centuries, Yoshitsune would become a
+        legendary figure, portrayed in countless works of literature as an idealized tragic hero.<br><br>
+
+        After Yoritomo's death in 1199, the office of shogun weakened. Behind the scenes, Yoritomo's wife Hōjō Masako
+        became the true power behind the government. In 1203, her father, Hōjō Tokimasa, was appointed regent to the
+        shogun, Yoritomo's son Minamoto no Sanetomo. Henceforth, the Minamoto shoguns became puppets of the Hōjō
+        regents, who wielded actual power.<br><br>
+
+        The regime that Yoritomo had established, and which was kept in place by his successors, was decentralized and
+        feudalistic in structure, in contrast with the earlier ritsuryō state. Yoritomo selected the provincial
+        governors, known under the titles of shugo or jitō,<br> from among his close vassals, the gokenin. The Kamakura
+        shogunate allowed its vassals to maintain their own armies and to administer law and order in their provinces on
+        their own terms.<br><br>
+
+        In 1221, the retired Emperor Go-Toba instigated what became known as the Jōkyū War, a rebellion against the
+        shogunate, in an attempt to restore political power to the court.<br> The rebellion was a failure and led to
+        Go-Toba
+        being exiled to Oki Island, along with two other emperors, the retired Emperor Tsuchimikado and Emperor Juntoku,
+        who were exiled to Tosa Province and Sado Island respectively. The shogunate further consolidated its
+        political power relative to the Kyoto aristocracy.<br><br>
+
+        The samurai armies of the whole nation were mobilized in 1274 and 1281 to confront two full-scale invasions
+        launched by Kublai Khan of the Mongol Empire.<br> Though outnumbered by an enemy equipped with superior
+        weaponry, the Japanese fought the Mongols to a standstill in Kyushu on both occasions until the Mongol fleet was
+        destroyed by typhoons called kamikaze, meaning "divine wind". In spite of the Kamakura shogunate's victory, the
+        defense so depleted its finances that it was unable to provide compensation to its vassals for their role in the
+        victory. This had permanent negative consequences for the shogunate's relations with the samurai class.<br>
+        Discontent among the samurai proved decisive in ending the Kamakura shogunate. In 1333, Emperor Go-Daigo
+        launched a rebellion in the hope of restoring full power to the imperial court. The shogunate sent General
+        Ashikaga Takauji to quell the revolt, but Takauji and his men instead joined forces with Emperor Go-Daigo and
+        overthrew the Kamakura shogunate.<br><br>
+
+        Japan nevertheless entered a period of prosperity and population growth starting around 1250. In rural
+        areas, the greater use of iron tools and fertilizer, improved irrigation techniques, and double-cropping
+        increased productivity and rural villages grew. Fewer famines and epidemics allowed cities to grow and
+        commerce to boom.<br> Buddhism, which had been largely a religion of the elites, was brought to the masses by
+        prominent monks, such as Hōnen (1133–1212), who established Pure Land Buddhism in Japan, and Nichiren
+        (1222–1282), who founded Nichiren Buddhism. Zen Buddhism spread widely among the samurai class.
+    </p>
+
+    <h2 id="muromachi_period">5. Muromachi Period (1338-1573)</h2>
+    <p>
+        The Muromachi period saw the dominance of the Ashikaga shogunate and the growth of cultural
+        achievements such as tea ceremony, Noh theater, and ink painting. However, internal conflicts
+        and external threats led to the period's decline.<br><br>
+
+        Takauji and many other samurai soon became dissatisfied with Emperor Go-Daigo's Kenmu Restoration, an ambitious
+        attempt to monopolize power in the imperial court. Takauji rebeled after Go-Daigo refused to appoint him shōgun.
+        In 1338, Takauji captured Kyoto and installed a rival member of the imperial family to the throne, Emperor
+        Kōmyō, who did appoint him shogun.<br> Go-Daigo responded by fleeing to the southern city of Yoshino, where he
+        set up a rival government. This ushered in a prolonged period of conflict between the Northern Court and the
+        Southern Court.<br><br>
+
+        Takauji set up his shogunate in the Muromachi district of Kyoto. However, the shogunate was faced with the twin
+        challenges of fighting the Southern Court and of maintaining its authority over its own subordinate
+        governors.<br> Like the Kamakura shogunate, the Muromachi shogunate appointed its allies to rule in the
+        provinces, but these men increasingly styled themselves as feudal lords—called daimyōs—of their domains and
+        often refused to obey the shogun.<br> The Ashikaga shogun who was most successful at bringing the country
+        together was Takauji's grandson Ashikaga Yoshimitsu, who came to power in 1368 and remained influential until
+        his death in 1408. Yoshimitsu expanded the power of the shogunate and in 1392, brokered a deal to bring the
+        Northern and Southern Courts together and end the civil war. Henceforth, the shogunate kept the emperor and his
+        court under tight control.<br><br>
+
+        During the final century of the Ashikaga shogunate the country descended into another, more violent period of
+        civil war. This started in 1467 when the Ōnin War broke out over who would succeed the ruling shogun. The
+        daimyōs each took sides and burned Kyoto to the ground while battling for their preferred candidate. By the time
+        the succession was settled in 1477, the shogun had lost all power over the daimyō, who now ruled hundreds of
+        independent states throughout Japan.<br> During this Warring States period, daimyōs fought among themselves for
+        control of the country. Some of the most powerful daimyōs of the era were Uesugi Kenshin and Takeda
+        Shingen.<br> One enduring symbol of this era was the ninja, skilled spies and assassins hired by daimyōs. Few
+        definite historical facts are known about the secretive lifestyles of the ninja, who became the subject of many
+        legends. In addition to the daimyōs, rebellious peasants and "warrior monks" affiliated with Buddhist
+        temples also raised their own armies.<br><br>
+
+        Amid this ongoing anarchy, a trading ship was blown off course and landed in 1543 on the Japanese island of
+        Tanegashima, just south of Kyushu. The three Portuguese traders on board were the first Europeans to set foot in
+        Japan. Soon European traders would introduce many new items to Japan, most importantly the musket. By
+        1556, the daimyōs were using about 300,000 muskets in their armies.<br> The Europeans also brought Christianity,
+        which soon came to have a substantial following in Japan reaching 350,000 believers. In 1549 the Jesuit
+        missionary Francis Xavier disembarked in Kyushu.<br><br>
+
+        Initiating direct commercial and cultural exchange between Japan and the West, the first map made of Japan in
+        the west was represented in 1568 by the Portuguese cartographer Fernão Vaz Dourado.<br><br>
+
+        The Portuguese were allowed to trade and create colonies where they could convert new believers into the
+        Christian religion. The civil war status in Japan greatly benefited the Portuguese, as well as several competing
+        gentlemen who sought to attract Portuguese black boats and their trade to their domains.<br>
+        Initially, the Portuguese stayed on the lands belonging to Matsura Takanobu, Firando (Hirado), and in the
+        province of
+        Bungo, lands of Ōtomo Sōrin, but in 1562 they moved to Yokoseura when the Daimyô there, Omura Sumitada, offered
+        to be the first lord to convert to Christianity, adopting the name of Dom Bartolomeu. In 1564, he faced a
+        rebellion instigated by the Buddhist clergy and Yokoseura was destroyed.<br><br>
+
+        In 1561 forces under Ōtomo Sōrin attacked the castle in Moji with an alliance with the Portuguese, who provided
+        three ships, with a crew of about 900 men and more than 50 cannons. This is thought to be the first bombardment
+        by foreign ships on Japan.<br> The first recorded naval battle between Europeans and the Japanese occurred in
+        1565. In the Battle of Fukuda Bay, the daimyō Matsura Takanobu attacked two Portuguese trade vessels at Hirado
+        port. The engagement led the Portuguese traders to find a safe harbor for their ships that took them to
+        Nagasaki.
+    </p>
+
+    <h2 id="azuchi_momoyama_period">6. Azuchi-Momoyama Period (1573-1603)</h2>
+    <p>
+        The Azuchi-Momoyama period witnessed the unification of Japan under Oda Nobunaga and Toyotomi
+        Hideyoshi. It was a time of great change and the construction of iconic castles like Osaka
+        Castle.<br><br>
+
+        During the second half of the 16th century, Japan gradually reunified under two powerful warlords: Oda Nobunaga
+        and Toyotomi Hideyoshi. The period takes its name from Nobunaga's headquarters, Azuchi Castle, and Hideyoshi's
+        headquarters, Momoyama Castle.<br><br>
+
+        Nobunaga was the daimyō of the small province of Owari. He burst onto the scene suddenly, in 1560, when, during
+        the Battle of Okehazama, his army defeated a force several times its size led by the powerful daimyō Imagawa
+        Yoshimoto. Nobunaga was renowned for his strategic leadership and his ruthlessness. He encouraged
+        Christianity to incite hatred toward his Buddhist enemies and to forge strong relationships with European arms
+        merchants.<br> He equipped his armies with muskets and trained them with innovative tactics. He promoted
+        talented men regardless of their social status, including his peasant servant Toyotomi Hideyoshi, who became one
+        of his best generals.<br><br>
+
+        The Azuchi–Momoyama period began in 1568, when Nobunaga seized Kyoto and thus effectively brought an end to the
+        Ashikaga shogunate. He was well on his way towards his goal of reuniting all Japan when, in 1582, one of
+        his own officers, Akechi Mitsuhide, killed him during an abrupt attack on his encampment.<br> Hideyoshi avenged
+        Nobunaga by crushing Akechi's uprising and emerged as Nobunaga's successor. Hideyoshi completed the
+        reunification of Japan by conquering Shikoku, Kyushu, and the lands of the Hōjō family in eastern Japan.<br> He
+        launched sweeping changes to Japanese society, including the confiscation of swords from the peasantry, new
+        restrictions on daimyōs, persecutions of Christians, a thorough land survey, and a new law effectively
+        forbidding the peasants and samurai from changing their social class.<br> Hideyoshi's land survey designated
+        all those who were cultivating the land as being "commoners", an act which effectively granted freedom to most
+        of Japan's slaves.<br><br>
+
+        As Hideyoshi's power expanded, he dreamed of conquering China and launched two massive invasions of Korea
+        starting in 1592. Hideyoshi failed to defeat the Chinese and Korean armies on the Korean Peninsula and the war
+        ended after his death in 1598.<br> In the hope of founding a new dynasty, Hideyoshi had asked his most trusted
+        subordinates to pledge loyalty to his infant son Toyotomi Hideyori. Despite this, almost immediately after
+        Hideyoshi's death, war broke out between Hideyori's allies and those loyal to Tokugawa Ieyasu, a daimyō and a
+        former ally of Hideyoshi. Tokugawa Ieyasu won a decisive victory at the Battle of Sekigahara in 1600,
+        ushering in 268 uninterrupted years of rule by the Tokugawa clan.<br><br>
+    </p>
+
+    <h2 id="edo_period">7. Edo Period (1603-1868)</h2>
+    <p>
+        The Edo period was marked by the rule of the Tokugawa shogunate and a long period of peace
+        and stability. It was a time of economic growth, cultural development, and the isolationist
+        foreign policy.<br><br>
+
+        The Edo period was characterized by relative peace and stability under the tight control of the Tokugawa
+        shogunate, which ruled from the eastern city of Edo (modern Tokyo). In 1603, Emperor Go-Yōzei declared
+        Tokugawa Ieyasu shōgun, and Ieyasu abdicated two years later to groom his son as the second shōgun of what
+        became a long dynasty.<br> Nevertheless, it took time for the Tokugawas to consolidate their rule. In 1609, the
+        shōgun gave the daimyō of the Satsuma Domain permission to invade the Ryukyu Kingdom for perceived insults
+        towards the shogunate; the Satsuma victory began 266 years of Ryukyu's dual subordination to Satsuma and
+        China.<br> Ieyasu led the Siege of Osaka that ended with the destruction of the Toyotomi clan in 1615.
+        Soon after the shogunate promulgated the Laws for the Military Houses, which imposed tighter controls on the
+        daimyōs, and the alternate attendance system, which required each daimyō to spend every other year in
+        Edo. Even so, the daimyōs continued to maintain a significant degree of autonomy in their domains.<br> The
+        central government of the shogunate in Edo, which quickly became the most populous city in the world, took
+        counsel from a group of senior advisors known as rōjū and employed samurai as bureaucrats. The emperor in
+        Kyoto was funded lavishly by the government but was allowed no political power.<br><br>
+
+        The Tokugawa shogunate went to great lengths to suppress social unrest. Harsh penalties, including crucifixion,
+        beheading, and death by boiling, were decreed for even the most minor offenses, though criminals of high social
+        class were often given the option of seppuku ("self-disembowelment"), an ancient form of suicide that became
+        ritualized.<br> Christianity, which was seen as a potential threat, was gradually clamped down on until
+        finally, after the Christian-led Shimabara Rebellion of 1638, the religion was completely outlawed.<br> To
+        prevent further foreign ideas from sowing dissent, the third Tokugawa shogun, Iemitsu, implemented the sakoku
+        ("closed country") isolationist policy under which Japanese people were not allowed to travel abroad, return
+        from overseas, or build ocean-going vessels.<br> The only Europeans allowed on Japanese soil were the Dutch,
+        who were granted a single trading post on the island of Dejima at Nagasaki from 1634 to 1854. China and
+        Korea were the only other countries permitted to trade, and many foreign books were banned from
+        import.<br><br>
+
+        During the first century of Tokugawa rule, Japan's population doubled to thirty million, mostly because of
+        agricultural growth; the population remained stable for the rest of the period. The shogunate's
+        construction of roads, elimination of road and bridge tolls, and standardization of coinage promoted commercial
+        expansion that also benefited the merchants and artisans of the cities. City populations grew, but
+        almost ninety percent of the population continued to live in rural areas.<br> Both the inhabitants of cities
+        and of rural communities would benefit from one of the most notable social changes of the Edo period: increased
+        literacy and numeracy. The number of private schools greatly expanded, particularly those attached to temples
+        and shrines, and raised literacy to thirty percent. This may have been the world's highest rate at the time
+        and drove a flourishing commercial publishing industry, which grew to produce hundreds of titles per year.<br>
+        In the area of numeracy – approximated by an index measuring people's ability to report an exact rather than a
+        rounded age (age-heaping method), and which level shows a strong correlation to later economic development of a
+        country – Japan's level was comparable to that of north-west European countries, and moreover, Japan's index
+        came close to the 100 percent mark throughout the nineteenth century. These high levels of both literacy and
+        numeracy were part of the socio-economical foundation for Japan's strong growth rates during the following
+        century.<br><br>
+
+        <b>Decline and fall of the shogunate</b><br><br>
+
+        By the late eighteenth and early nineteenth centuries, the shogunate showed signs of weakening. The
+        dramatic growth of agriculture that had characterized the early Edo period had ended, and the government
+        handled the devastating Tenpō famines poorly.<br> Peasant unrest grew and government revenues fell. The
+        shogunate cut the pay of the already financially distressed samurai, many of whom worked side jobs to make a
+        living. Discontented samurai were soon to play a major role in engineering the downfall of the Tokugawa
+        shogunate.<br><br>
+
+        At the same time, the people drew inspiration from new ideas and fields of study. Dutch books brought into Japan
+        stimulated interest in Western learning, called rangaku or "Dutch learning". The physician Sugita Genpaku,
+        for instance, used concepts from Western medicine to help spark a revolution in Japanese ideas of human
+        anatomy. The scholarly field of kokugaku or "national learning", developed by scholars such as Motoori
+        Norinaga and Hirata Atsutane, promoted what it asserted were native Japanese values.<br> For instance, it
+        criticized
+        the Chinese-style Neo-Confucianism advocated by the shogunate and emphasized the Emperor's divine authority,
+        which the Shinto faith taught had its roots in Japan's mythic past, which was referred to as the "Age of the
+        Gods".<br><br>
+
+        The arrival in 1853 of a fleet of American ships commanded by Commodore Matthew C. Perry threw Japan into
+        turmoil. The US government aimed to end Japan's isolationist policies. The shogunate had no defense against
+        Perry's gunboats and had to agree to his demands that American ships be permitted to acquire provisions and
+        trade at Japanese ports.<br> The Western powers imposed what became known as "unequal treaties" on Japan which
+        stipulated that Japan must allow citizens of these countries to visit or reside on Japanese territory and must
+        not levy tariffs on their imports or try them in Japanese courts.<br><br>
+
+        The shogunate's failure to oppose the Western powers angered many Japanese, particularly those of the southern
+        domains of Chōshū and Satsuma. Many samurai there, inspired by the nationalist doctrines of the kokugaku
+        school, adopted the slogan of sonnō jōi ("revere the emperor, expel the barbarians"). The two domains went
+        on to form an alliance. In August 1866, soon after becoming shogun, Tokugawa Yoshinobu, struggled to maintain
+        power as civil unrest continued.<br> The Chōshū and Satsuma domains in 1868 convinced the young Emperor Meiji
+        and his advisors to issue a rescript calling for an end to the Tokugawa shogunate. The armies of Chōshū and
+        Satsuma soon marched on Edo and the ensuing Boshin War led to the fall of the shogunate.
+    </p>
+
+    <h2 id="meiji_period">8. Meiji Period (1868-1912)</h2>
+    <p>
+        The Meiji period saw the restoration of imperial rule and a rapid modernization of Japan.
+        It marked the end of the feudal system, the opening of Japan to the world, and significant
+        social and political reforms.<br><br>
+        The emperor was restored to nominal supreme power, and in 1869, the imperial family moved to Edo, which was
+        renamed Tokyo ("eastern capital").<br> However, the most powerful men in the government were former samurai
+        from Chōshū and Satsuma rather than the emperor, who was fifteen in 1868. These men, known as the Meiji
+        oligarchs, oversaw the dramatic changes Japan would experience during this period.<br> The leaders of the Meiji
+        government desired Japan to become a modern nation-state that could stand equal to the Western imperialist
+        powers. Among them were Ōkubo Toshimichi and Saigō Takamori from Satsuma, as well as Kido Takayoshi, Ito
+        Hirobumi, and Yamagata Aritomo from Chōshū.<br><br>
+
+        In December 1871, a Ryukyuan ship was shipwrecked on Taiwan and the crew were massacred. In 1874, using the
+        incident as a pretext, Japan launched a military expedition to Taiwan to assert their claims to the Ryukyu
+        Islands. The expedition featured the first instance of the Japanese military ignoring the orders of the civilian
+        government, as the expedition set sail after being ordered to postpone.<br> Yamagata Aritomo, who was born a
+        samurai in the Chōshū Domain, was a key force behind the modernization and enlargement of the Imperial Japanese
+        Army, especially the introduction of national conscription. The new army was put to use in 1877 to crush
+        the Satsuma Rebellion of discontented samurai in southern Japan led by the former Meiji leader Saigo
+        Takamori.<br><br>
+
+        The Japanese military played a key role in Japan's expansion abroad. The government believed that Japan had to
+        acquire its own colonies to compete with the Western colonial powers. After consolidating its control over
+        Hokkaido (through the Hokkaidō Development Commission) and annexing the Ryukyu Kingdom (the "Ryūkyū
+        Disposition"), it next turned its attention to China and Korea.<br> In 1894, Japanese and Chinese troops
+        clashed in Korea, where they were both stationed to suppress the Donghak Rebellion. During the ensuing First
+        Sino-Japanese War, Japan's highly motivated and well-led forces defeated the more numerous and better-equipped
+        military of Qing China.<br> The island of Taiwan was thus ceded to Japan in 1895, and Japan's government
+        gained enough international prestige to allow Foreign Minister Mutsu Munemitsu to renegotiate the "unequal
+        treaties". In 1902 Japan signed an important military alliance with the British.<br><br>
+
+        Japan next clashed with Russia, which was expanding its power in Asia. The Battle of Yalu River was the first
+        time in decades that an Asian power defeated a western power. The Russo-Japanese War of 1904–05 ended with
+        the dramatic Battle of Tsushima, which was another victory for Japan's new navy.<br> Japan thus laid claim to
+        Korea
+        as a protectorate in 1905, followed by full annexation in 1910. The defeat of Russia in the war had set in
+        motion a change in the global world order with the emergence of Japan as not only a regional power, but rather,
+        the main Asian power.
+    </p>
+
+    <h2 id="taisho_early_showa_periods">9. Taisho and Early Showa Periods (1912-1945)</h2>
+    <p>
+        The Taisho and early Showa periods were characterized by democratic reforms, urbanization,
+        and cultural blossoming. However, Japan also faced economic challenges and militaristic
+        tendencies leading up to World War II.<br><br>
+
+        <b>Taishō period</b><br><br>
+
+        During the short reign of Emperor Taishō, Japan developed stronger democratic institutions and grew in
+        international power. The Taishō political crisis opened the period with mass protests and riots organized by
+        Japanese political parties, which succeeded in forcing Katsura Tarō to resign as prime minister.<br> This and
+        the rice riots of 1918 increased the power of Japan's political parties over the ruling oligarchy. The
+        Seiyūkai and Minseitō parties came to dominate politics by the end of the so-called "Taishō democracy" era.<br>
+        The franchise for the House of Representatives had been gradually expanded since 1890, and in 1925
+        universal male suffrage was introduced. However, in the same year the far-reaching Peace Preservation Law also
+        passed, prescribing harsh penalties for political dissidents.<br><br>
+
+        Japan's participation in World War I on the side of the Allies sparked unprecedented economic growth and earned
+        Japan new colonies in the South Pacific seized from Germany.<br> After the war, Japan signed the Treaty of
+        Versailles and enjoyed good international relations through its membership in the League of Nations and
+        participation in international disarmament conferences. The Great Kantō earthquake in September 1923 left
+        over 100,000 dead, and combined with the resultant fires destroyed the homes of more than three million.<br> In
+        the aftermath of the earthquake, the Kantō Massacre occurred, in which the Japanese military, police, and gangs
+        of vigilantes murdered thousands of Korean people after rumors emerged that Koreans had been poisoning wells.
+        The rumors were later described as false by numerous Japanese sources.<br><br>
+
+        The growth of popular prose fiction, which began during the Meiji period, continued into the Taishō period as
+        literacy rates rose and book prices dropped. Notable literary figures of the era included short story
+        writer Ryūnosuke Akutagawa and the novelist Haruo Satō. Jun'ichirō Tanizaki, described as "perhaps the most
+        versatile literary figure of his day" by the historian Conrad Totman, produced many works during the Taishō
+        period influenced by European literature, though his 1929 novel Some Prefer Nettles reflects deep appreciation
+        for the virtues of traditional Japanese culture.<br> At the end of the Taishō period, Tarō Hirai, known by his
+        penname Edogawa Ranpo, began writing popular mystery and crime stories.<br><br>
+
+        <b>Shōwa period</b><br><br>
+
+        Emperor Hirohito's sixty-three-year reign from 1926 to 1989 is the longest in recorded Japanese history.
+        The first twenty years were characterized by the rise of extreme nationalism and a series of expansionist
+        wars.<br>
+        After suffering defeat in World War II, Japan was occupied by foreign powers for the first time in its history,
+        and then re-emerged as a major world economic power.<br><br>
+
+        <b>Manchurian Incident and the Second Sino-Japanese War</b><br><br>
+
+        Left-wing groups had been subject to violent suppression by the end of the Taishō period, and radical
+        right-wing groups, inspired by fascism and Japanese nationalism, rapidly grew in popularity. The extreme
+        right became influential throughout the Japanese government and society, notably within the Kwantung Army, a
+        Japanese army stationed in China along the Japanese-owned South Manchuria Railroad.<br> During the Manchurian
+        Incident of 1931, radical army officers bombed a small portion of the South Manchuria Railroad and, falsely
+        attributing the attack to the Chinese, invaded Manchuria. The Kwantung Army conquered Manchuria and set up the
+        puppet government of Manchukuo there without permission from the Japanese government. International criticism of
+        Japan following the invasion led to Japan withdrawing from the League of Nations.<br><br>
+
+        Prime Minister Tsuyoshi Inukai of the Seiyūkai Party attempted to restrain the Kwantung Army and was
+        assassinated in 1932 by right-wing extremists. Because of growing opposition within the Japanese military and
+        the extreme right to party politicians, who they saw as corrupt and self-serving, Inukai was the last party
+        politician to govern Japan in the pre-World War II era.<br> In February 1936 young radical officers of the
+        Imperial Japanese Army attempted a coup d'état. They assassinated many moderate politicians before the coup was
+        suppressed. In its wake the Japanese military consolidated its control over the political system and most
+        political parties were abolished when the Imperial Rule Assistance Association was founded in 1940.<br><br>
+
+        Japan's expansionist vision grew increasingly bold. Many of Japan's political elite aspired to have Japan
+        acquire new territory for resource extraction and settlement of surplus population. These ambitions led to
+        the outbreak of the Second Sino-Japanese War in 1937. After their victory in the Chinese capital, the Japanese
+        military committed the infamous Nanjing massacre.<br> The Japanese military failed to defeat the Chinese
+        government
+        led by Chiang Kai-shek and the war descended into a bloody stalemate that lasted until 1945. Japan's stated
+        war aim was to establish the Greater East Asia Co-Prosperity Sphere, a vast pan-Asian union under Japanese
+        domination.<br> Hirohito's role in Japan's foreign wars remains a subject of controversy, with various
+        historians portraying him as either a powerless figurehead or an enabler and supporter of Japanese
+        militarism.<br><br>
+
+        The United States opposed Japan's invasion of China and responded with increasingly stringent economic sanctions
+        intended to deprive Japan of the resources to continue its war in China. Japan reacted by forging an
+        alliance with Germany and Italy in 1940, known as the Tripartite Pact, which worsened its relations with the US.<br>
+        In July 1941, the United States, the United Kingdom, and the Netherlands froze all Japanese assets when Japan
+        completed its invasion of French Indochina by occupying the southern half of the country, further increasing
+        tension in the Pacific.<br><br>
+
+        <b>World War II</b><br><br>
+
+        In late 1941, Japan's government, led by Prime Minister and General Hideki Tojo, decided to break the US-led
+        embargo through force of arms. On 7 December 1941, the Imperial Japanese Navy launched a surprise attack on
+        the American fleet at Pearl Harbor, Hawaii.<br> This brought the US into World War II on the side of the Allies.
+        Japan then successfully invaded the Asian colonies of the United States, the United Kingdom, and the
+        Netherlands, including the Philippines, Malaya, Hong Kong, Singapore, Burma, and the Dutch East Indies.<br><br>
+
+        In the early stages of the war, Japan scored victory after victory. The tide began to turn against Japan
+        following the Battle of Midway in June 1942 and the subsequent Battle of Guadalcanal, in which Allied troops
+        wrested the Solomon Islands from Japanese control.<br> During this period the Japanese military was responsible
+        for such war crimes as mistreatment of prisoners of war, massacres of civilians, and the use of chemical and
+        biological weapons.<br> The Japanese military earned a reputation for fanaticism, often employing banzai
+        charges and fighting almost to the last man against overwhelming odds. In 1944 the Imperial Japanese Navy
+        began deploying squadrons of kamikaze pilots who crashed their planes into enemy ships.<br><br>
+
+        Life in Japan became increasingly difficult for civilians due to stringent rationing of food, electrical
+        outages, and a brutal crackdown on dissent. In 1944 the US Army captured the island of Saipan, which
+        allowed the United States to begin widespread bombing raids on the Japanese mainland. These destroyed over
+        half of the total area of Japan's major cities.<br> The Battle of Okinawa, fought between April and June 1945,
+        was the largest naval operation of the war and left 115,000 soldiers and 150,000 Okinawan civilians dead,
+        suggesting that the planned invasion of mainland Japan would be even bloodier. The Japanese superbattleship
+        Yamato was sunk en route to aid in the Battle of Okinawa.<br><br>
+
+        However, on 6 August 1945, the US dropped an atomic bomb over Hiroshima, killing over 70,000 people. This was
+        the first nuclear attack in history. On 9 August the Soviet Union declared war on Japan and invaded Manchukuo
+        and other territories, and Nagasaki was struck by a second atomic bomb, killing around 40,000 people.<br> The
+        surrender of Japan was communicated to the Allies on 14 August and broadcast by Emperor Hirohito on national
+        radio the following day.<br><br>
+
+        <b>Occupation of Japan</b><br><br>
+
+        Japan experienced dramatic political and social transformation under the Allied occupation in 1945–1952. US
+        General Douglas MacArthur, the Supreme Commander of Allied Powers, served as Japan's de facto leader and played
+        a central role in implementing reforms, many inspired by the New Deal of the 1930s.<br><br>
+
+        The occupation sought to decentralize power in Japan by breaking up the zaibatsu, transferring ownership of
+        agricultural land from landlords to tenant farmers, and promoting labor unionism.<br> Other major goals
+        were the demilitarization and democratization of Japan's government and society. Japan's military was
+        disarmed, its colonies were granted independence, the Peace Preservation Law and Special Higher Police
+        were abolished, and the International Military Tribunal of the Far East tried war criminals.<br> The
+        cabinet became responsible not to the Emperor but to the elected National Diet. The Emperor was permitted
+        to remain on the throne, but was ordered to renounce his claims to divinity, which had been a pillar of the
+        State Shinto system.<br> Japan's new constitution came into effect in 1947 and guaranteed civil liberties,
+        labor rights, and women's suffrage, and through Article 9, Japan renounced its right to go to war with
+        another nation.<br><br>
+
+        The San Francisco Peace Treaty of 1951 officially normalized relations between Japan and the United States. The
+        occupation ended in 1952, although the US continued to administer a number of the Ryukyu Islands. In 1968,
+        the Ogasawara Islands were returned from US occupation to Japanese sovereignty.<br> Japanese citizens were
+        allowed
+        to return. Okinawa was the last to be returned in 1972. The US continues to operate military bases
+        throughout the Ryukyu Islands, mostly on Okinawa, as part of the US-Japan Security Treaty.
+    </p>
+
+    <h2 id="postwar_period">10. Postwar Period (since 1945)</h2>
+    <p>
+        The postwar period witnessed Japan's reconstruction after World War II and its transformation
+        into an economic powerhouse. It embraced democracy and international cooperation while preserving
+        its unique cultural heritage.<br><br>
+
+        <b>Postwar growth and prosperity</b><br><br>
+
+        Shigeru Yoshida served as prime minister in 1946–1947 and 1948–1954, and played a key role in guiding Japan
+        through the occupation. His policies, known as the Yoshida Doctrine, proposed that Japan should forge a
+        tight relationship with the United States and focus on developing the economy rather than pursuing a proactive
+        foreign policy.<br> Yoshida was one of the longest serving prime ministers in Japanese history. Yoshida's
+        Liberal Party merged in 1955 into the new Liberal Democratic Party (LDP), which went on to dominate
+        Japanese politics for the remainder of the Shōwa period.<br><br>
+
+        Although the Japanese economy was in bad shape in the immediate postwar years, an austerity program implemented
+        in 1949 by finance expert Joseph Dodge ended inflation. The Korean War (1950–1953) was a major boon to
+        Japanese business.<br> In 1949 the Yoshida cabinet created the Ministry of International Trade and Industry
+        (MITI) with a mission to promote economic growth through close cooperation between the government and big
+        business. MITI sought successfully to promote manufacturing and heavy industry, and encourage exports.<br>
+        The factors behind Japan's postwar economic growth included technology and quality control techniques imported
+        from the West, close economic and defense cooperation with the United States, non-tariff barriers to imports,
+        restrictions on labor unionization, long work hours, and a generally favorable global economic environment.
+        Japanese corporations successfully retained a loyal and experienced workforce through the system of lifetime
+        employment, which assured their employees a safe job.<br><br>
+
+        By 1955, the Japanese economy had grown beyond prewar levels, and by 1968 it had become the second largest
+        capitalist economy in the world. The GNP expanded at an annual rate of nearly 10% from 1956 until the 1973
+        oil crisis slowed growth to a still-rapid average annual rate of just over 4% until 1991.<br> Life expectancy
+        rose and Japan's population increased to 123 million by 1990. Ordinary Japanese people became wealthy
+        enough to purchase a wide array of consumer goods. During this period, Japan became the world's largest
+        manufacturer of automobiles and a leading producer of electronics.<br> Japan signed the Plaza Accord in 1985 to
+        depreciate the US dollar against the yen and other currencies. By the end of 1987, the Nikkei stock market index
+        had doubled and the Tokyo Stock Exchange became the largest in the world. During the ensuing economic bubble,
+        stock and real-estate loans grew rapidly.<br><br>
+
+        Japan became a member of the United Nations in 1956 and further cemented its international standing in 1964,
+        when it hosted the Olympic Games in Tokyo. Japan was a close ally of the United States during the Cold War,
+        though this alliance did not have unanimous support from the Japanese people.<br> As requested by the United
+        States,
+        Japan reconstituted its army in 1954 under the name Japan Self-Defense Forces (JSDF), though some Japanese
+        insisted that the very existence of the JSDF was a violation of Article 9 of Japan's constitution. In 1960,
+        the massive Anpo protests saw hundreds of thousands of citizens take to the streets in opposition to the
+        US-Japan Security Treaty.<br> Japan successfully normalized relations with the Soviet Union in 1956, despite an
+        ongoing dispute over the ownership of the Kuril Islands, and with South Korea in 1965, despite an ongoing
+        dispute over the ownership of the islands of Liancourt Rocks.<br> In accordance with US policy, Japan
+        recognized the Republic of China on Taiwan as the legitimate government of China after World War II, though
+        Japan switched its recognition to the People's Republic of China in 1972.<br><br>
+
+        Among cultural developments, the immediate post-occupation period became a golden age for Japanese cinema.
+        The reasons for this include the abolition of government censorship, low film production costs, expanded access
+        to new film techniques and technologies, and huge domestic audiences at a time when other forms of recreation
+        were relatively scarce.<br> On 1 October 1964, Japan's first high-speed rail line was built called the Tokaido
+        Shinkansen. It is also the oldest high-speed rail system in the world.
+    </p>
+
+</div>
+
+<script>
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        element.scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+
+<div class="sidebar">
+    <a href="{% url 'japanese culture' %}">
+        <img src="{% static 'japanese_culture.jpg' %}" alt="Japanese Culture"> Japanese Culture
+    </a>
+    <a href="{% url 'modern japan' %}">
+        <img src="{% static 'modern_japan_sidebar.jpg' %}" alt="Modern Japan"> Modern Japan
+    </a>
+</div>
+<nav>
+    <a href="{% url 'about japan' %}">Home</a>
+    <a href="{% url 'login page' %}">Login</a>
+    <a href="{% url 'sign up page' %}">Create Profile</a>
+</nav>
 </body>
 </html>
-
-#TO DO... main japanese history page, with redirect links to separate and more specific pages, like
-#ninja/samurai overview and etc

@@ -1,0 +1,12 @@
+{% extends profile_page.html %}
+
+{% block content %}
+<div class="profile delete">
+    <div class="delete-button-container">
+        <form method="post" action="{% url 'profile delete' %}">
+            {% csrf_token %}
+            <button type="submit" class="button" id="confirmDelete">Delete Profile</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

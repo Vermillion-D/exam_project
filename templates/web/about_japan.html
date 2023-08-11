@@ -1,13 +1,240 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Japan</title>
+    <style>
+        body {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            background-color: grey;
+            background-image: url('{%  static 'about_japan_background.jpg' %}');
+            background-position: center center;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .container {
+            width: 38%;
+            height: 935px;
+            margin: 0 auto;
+            padding: 0.9rem;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        h1 {
+            color: peachpuff;
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: peachpuff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+
+        h3 {
+            color: peachpuff;
+            line-height: 1.6;
+            font-size: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+
+        h4 {
+            color: black;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: peachpuff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .ul-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        ul {
+            width: fit-content;
+        }
+
+        li {
+            font-size: 1.2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s;
+        }
+
+        .carousel-item {
+            flex: 0 0 100%;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+        }
+
+        .carousel-item:hover .carousel-text {
+            color: hotpink;
+        }
+
+        .carousel-controls {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .carousel-control {
+            cursor: pointer;
+        }
+
+        .carousel-text {
+            color: peachpuff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+        h5 {
+            color: peachpuff;
+        }
+
+        h5:hover {
+            color: hotpink;
+        }
+
+    </style>
 </head>
 <body>
+<div class="container">
+    <h1>About Japan</h1>
+    <h3>Welcome to our page about Japan. Here, you'll find information about
+        various aspects of Japan, it's culture, history and modern age.<br>
+        If you want to learn even more about Japan and it's people, you can do so by <a href="{% url 'login page' %}"><h5><b>LOGGING
+            IN</b></h5></a>
+        If you don't have a profile yet, you can create one by <a href="{% url 'sign up page' %}"><h5><b>SIGNING UP</b></h5></a>
+    </h3>
+    <div class="content">
+        <div class="ul-container">
+            <div class="carousel" id="imageCarousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div class="carousel-text">Japanese Culture</div>
+                        <a href="{% url 'japanese culture' %}">
+                            <img src="{% static 'japanese_culture.jpg' %}" alt="Image 1">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-text">Modern Japan</div>
+                        <a href="{% url 'modern japan' %}">
+                            <img src="{% static 'modern_japan_sidebar.jpg' %}" alt="Image 2">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-text">Japanese History</div>
+                        <a href="{% url 'japanese history' %}">
+                            <img src="{% static 'Japanese_History.jpg' %}" alt="Image 3">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <div class="carousel-control" onclick="prevSlide()">&#10094;</div>
+                <div class="carousel-control" onclick="nextSlide()">&#10095;</div>
+            </div>
 
+        </div>
+    </div>
+</div>
+
+<nav>
+    <a href="{% url 'login page' %}">Login</a>
+    <a href="{% url 'sign up page' %}">Create Profile</a>
+</nav>
+
+<script>
+    let currentIndex = 0;
+    const carousel = document.getElementById('imageCarousel');
+    const carouselInner = carousel.querySelector('.carousel-inner');
+    const items = carouselInner.querySelectorAll('.carousel-item');
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % items.length;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const translateX = -currentIndex * items[0].clientWidth;
+        carouselInner.style.transform = `translateX(${translateX}px)`;
+    }
+
+    setInterval(nextSlide, 6500);
+</script>
 </body>
 </html>
-
-#TO DO... Home Page with links that redirect to other pages like Modern Japan and Japanese Culture
-#if no profile and all the history pages if profile

@@ -1,0 +1,275 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        body {
+            background-color: lightsteelblue;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+            overflow: hidden;
+            background-image: url("{% static 'profile_background.jpeg' %}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: transparent;
+            color: hotpink;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .button:hover {
+            background-color: peachpuff;
+        }
+
+        .profile-details,
+        .profile-edit,
+        .profile-delete,
+        .profile-password {
+            display: none;
+        }
+
+        #showDetails.active ~ .profile-details {
+            display: block;
+        }
+
+        #showEdit.active ~ .profile-edit {
+            display: block;
+        }
+
+        #showDelete.active ~ .profile-delete {
+            display: block;
+        }
+
+        #showPassword.active ~ .profile-password {
+            display: block;
+        }
+
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .edit-button-container,
+        .password-button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: peachpuff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .nav-link-button {
+            color: peachpuff;
+            font-size: 1rem;
+            background-color: transparent;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-link-button:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="password"] {
+            width: 100%; /* Username and password fields take full width */
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container input[type="email"] {
+            width: 100%; /* Email field also takes full width */
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+<h1>Welcome to Your Profile</h1>
+
+<div class="profile-details">
+    <p>Here is your profile information:</p>
+    <p>Name: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+</div>
+
+
+<div class="profile-edit">
+    <div class="form-container">
+        <form method="post" action="{% url 'edit profile' %}">
+            {% csrf_token %}
+            {{ edit_form.username.label_tag }}
+            {{ edit_form.username }}
+
+            {{ edit_form.email.label_tag }}
+            {{ edit_form.email }}
+
+
+            <div class="edit-button-container">
+                <button class="button" type="submit">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="profile-delete">
+    <p>Are you sure you want to delete your profile?</p>
+    <form method="post" action="{% url 'profile delete' %}">
+        {% csrf_token %}
+        <button type="submit" class="delete-button">Delete Profile</button>
+    </form>
+</div>
+
+<div class="profile-password">
+    <div class="form-container">
+        <form>
+            <label for="currentPassword">Current Password:</label>
+            <input type="password" id="currentPassword" name="currentPassword">
+
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword">
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+
+            <div class="password-button-container">
+                <button class="button" type="submit">Change Password</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="button-container">
+    <button class="button" id="showDetails">Show Details</button>
+    <button class="button" id="showEdit">Edit Profile</button>
+    <button class="button" id="showDelete">Delete Profile</button>
+    <button class="button" id="showPassword">Change Password</button>
+</div>
+<nav>
+    <a href="{% url 'about japan with profile' %}">Home</a>
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{% url 'about japan' %}">
+        <button type="submit" class="nav-link-button">Logout</button>
+    </form>
+</nav>
+<script>
+    const buttons = {
+        showDetails: document.getElementById('showDetails'),
+        showEdit: document.getElementById('showEdit'),
+        showDelete: document.getElementById('showDelete'),
+        showPassword: document.getElementById('showPassword')
+    };
+
+    const sections = {
+        profileDetails: document.querySelector('.profile-details'),
+        profileEdit: document.querySelector('.profile-edit'),
+        profileDelete: document.querySelector('.profile-delete'),
+        profilePassword: document.querySelector('.profile-password')
+    };
+
+    const toggleSection = (buttonId, section) => {
+        const button = buttons[buttonId];
+        const hideSections = Object.values(sections).filter(sec => sec !== section);
+
+        button.addEventListener('click', () => {
+            if (!button.classList.contains('active')) {
+                for (const sec of hideSections) {
+                    sec.style.display = 'none';
+                }
+                section.style.display = 'block';
+                for (const btn of Object.values(buttons)) {
+                    btn.classList.remove('active');
+                }
+                button.classList.add('active');
+            } else {
+                section.style.display = 'none';
+                button.classList.remove('active');
+            }
+        });
+    };
+
+    toggleSection('showDetails', sections.profileDetails);
+    toggleSection('showDelete', sections.profileDelete);
+    toggleSection('showEdit', sections.profileEdit);
+    toggleSection('showPassword', sections.profilePassword);
+</script>
+</body>
+</html>

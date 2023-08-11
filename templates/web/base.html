@@ -1,12 +1,95 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Culture and History</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: lightsteelblue;
+            background-image: url('{% static 'sakura_tree_background.jpg' %}');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+            background-attachment: fixed;
+            color: white;
+        }
+        .goshko-dve {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 150px;
+            padding-top: 300px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        }
+        h1 {
+            color: peachpuff;
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+        }
+
+        p {
+            line-height: 1.6;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+            color: peachpuff;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: peachpuff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+    </style>
 </head>
 <body>
-
+<header>
+    <div class="goshko-dve">
+        <h1>Japanese Culture and History</h1>
+    </div>
+</header>
+    <nav>
+        <a href="{% url 'login page' %}">Login</a>
+        <a href="{% url 'sign up page' %}">Create Profile</a>
+        <a href="{% url 'about japan' %}">Continue as Guest</a>
+    </nav>
+    <div class="container">
+    <p>Welcome to the index page of my project about Japanese Culture and History. Here, you'll find valuable information
+        about various aspects of Japanese heritage, traditions, and historical events.</p>
+    </div>
 </body>
 </html>
-
-#TO DO... base page where people can singup login or continue without account.

@@ -1,12 +1,323 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samurai</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('{% static 'japanese_history_background.jpg' %}'), url('{% static 'japanese_history_background.jpg' %}');
+            background-position: left center, right center;
+            background-size: 65% 100%;
+            background-repeat: no-repeat, no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 38%;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .list-item:hover {
+            color: hotpink;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 8%;
+            height: 5%;
+            top: 10%;
+            right: 50px;
+            transform: translateY(-50%);
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #0B0C10;
+            font-weight: bold;
+        }
+
+        .sidebar img {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .ul-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        ul {
+            width: fit-content;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        h4 {
+            color: black;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .nav-link-button {
+            color: black;
+            font-size: 1rem;
+            background-color: transparent;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-link-button:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
 </head>
 <body>
+<div class="container">
+    <h1>Samurai</h1>
+    <h3>Welcome to the page about Samurai. Here, you'll find information about the noble warriors of feudal Japan.</h3>
+    <div class="content">
+        <div class="ul-container">
+            <ul>
+                <li class="list-item" onclick="scrollToSection('introduction')">1. Introduction to Samurai</li>
+                <li class="list-item" onclick="scrollToSection('purpose')">2. The purpose of Samurai
+                </li>
+                <li class="list-item" onclick="scrollToSection('miyamoto-musashi')">3. Miyamoto Musashi</li>
+                <li class="list-item" onclick="scrollToSection('weapons-skills')">4. Samurai most used weapons and
+                    skills
+                </li>
+            </ul>
+        </div>
+    </div>
 
+    <h2 id="introduction">1. Introduction to Samurai</h2>
+    <p>Samurai were a class of highly skilled warriors who trace their start back to the mid-600s AD. The first record
+        of samurai was about the time an effort to redistribute land, primarily farmland, and impose heavy new taxes to
+        support the lavish lifestyle of what later became the Imperial Court.</p>
+
+    <h2 id="purpose">2. How Were Samurai Created and What Was Their Purpose</h2>
+    <p>Although an emperor reigned in Japan since ancient times, by the late 1100s powerful military leaders were
+        challenging the power of the imperial court. From the thirteenth century on, Japan was ruled through a dual
+        government structure. While the emperor retained cultural and religious sovereignty over the nation, the
+        military elite during this period assumed political and economic leadership. This system of governance remained
+        in place until the late 1800s.<br><br>
+        Samurai (lit. “one who serves”) is the term used to refer to members of Japan’s warrior class. The origins of
+        the samurai can be traced to the eighth and ninth centuries, when large landholdings moved into the hands of the
+        imperial family and related members of the aristocracy (nobles).<br> In the Heian period (794–1185), the
+        Kyoto-based
+        imperial court and nobles depended on the agricultural income from these landholdings, especially large private
+        estates in northern Japan. The need to defend these distant estates from attacks by local chieftains led to the
+        birth of the samurai.<br> The nobles sent from the capital to govern the estates often lacked the skills and
+        authority necessary to maintain security or provide effective administration in such remote districts, so the
+        court appointed deputies from among the local population to assist them. Forerunners of the early samurai, these
+        deputies built local and regional power by creating privately controlled militia known as “warrior bands."<br>
+        Starting as little more than family organizations, warrior bands were initially formed for the duration of a
+        specific military campaign and then disbanded to allow the men to return to farming. By the eleventh century the
+        bands were changing to groups of fighting men not necessarily connected through kinship.<br> Power was beginning
+        to
+        aggregate in the hands of a few elite military families, or clans, whose regional dominance was supported by the
+        fighting abilities of retainers and vassals. These were men bound to their lords by vows of loyalty and/or other
+        contractual obligations, such as grants of land or income in exchange for military service.</p>
+
+    <h2 id="miyamoto-musashi">3. Miyamoto Musashi, the Greatest Samurai of All Time</h2>
+    <img src="{% static 'miyamotomusashi.jpg' %}" width=100%><br><br>
+
+    <p>Miyamoto Musashi (1584-1645) was the most famous swordsman, teacher of the Way of the Sword, and ronin
+        (masterless samurai) of the early Edo period.<br><br>
+
+        <b>First duel</b><br><br><br><br>
+
+        <i>"I have trained in the way of strategy since my youth, and at the age of thirteen I fought a duel for the
+            first
+            time. My opponent was called Arima Kihei, a sword adept of the Shinto ryū, and I defeated him. At the age of
+            sixteen I defeated a powerful adept by the name of Tadashima Akiyama, who came from Tajima Province. At the
+            age
+            of twenty-one I went up to Kyōtō and fought duels with several adepts of the sword from famous schools, but
+            I
+            never lost."</i></p>
+    <h4>—Miyamoto Musashi.</h4><br><br>
+
+    <p>According to the introduction of The Book of Five Rings, Musashi states that his first successful duel was at the
+        age of 13, against a samurai named Arima Kihei who fought using the Kashima Shintō-ryū style, founded by
+        Tsukahara
+        Bokuden (1489–1571).<br><br>
+
+        <b>Travels and duels</b><br><br>
+
+        In 1599, Musashi left his village, apparently at the age of 15 (according to the Tosakushi, "The Registry of the
+        Sakushu Region", although the Tanji Hokin Hikki says he was 16 years old in 1599, which agrees time-wise with
+        the
+        age reported in Musashi's first duel).<br> His family possessions such as furniture, weapons, genealogy, and
+        other
+        records were left with his sister and her husband, Hirao Yoemon. He spent his time traveling and engaging in
+        duels.<br><br>
+
+        <b>Duel with Sasaki Kojirō</b><br><br>
+        <img src="{% static 'duel.jpg' %}" width=100%><br><br>
+
+
+        In 1611, Musashi began practicing zazen at the Myōshin-ji temple, where he met Nagaoka Sado, vassal to Hosokawa
+        Tadaoki; Tadaoki was a powerful lord who had received the Kumamoto Domain in west-central Kyūshū after the
+        Battle of
+        Sekigahara. Munisai had moved to northern Kyūshū and became Tadaoki's teacher, leading to the possibility that
+        Munisai introduced Musashi to Sasaki Kojirō, another guest of the Hosokawa clan at the time.<br> Somehow, a duel
+        was
+        proposed between the two; in some versions, Nagaoka proposed the duel, in others, Kojirō proposed it out of
+        rivalry
+        or jealously. Tokitsu believes that the duel was politically motivated, as a matter of consolidating Tadaoki's
+        control over his fief.
+        Sasaki Kojiro engages Miyamoto Musashi on the shores of Ganryū Island.<br><br>
+
+        The duel was scheduled for April 13, 1612, when Musashi was approximately 30 years old. The departure by boat
+        for
+        the duel was arranged for the Hour of the Dragon in the early morning (approximately 8:00 AM) to the island of
+        Ganryūjima, a small isle between Honshū and Kyūshū. While Hosokawa officials banned spectators, the island was
+        filled with them anyway. Kojirō was known for wielding an oversized nodachi (Japanese greatsword) called a
+        "laundry-drying pole" for its length, as well as being titled "three-shaku silver blade" (「三尺の白刃」).<br>
+        Using
+        this
+        sword, Kojirō was said to be known for a swift two-stroke sword technique called tsubame gaeshi (not to confuse
+        with
+        the judo move of the same name, which received the name as an homage), and he bore the nickname "The Demon of
+        the
+        Western Provinces".<br> Kojirō arrived at the appointed time, but was then left to wait for hours; Musashi had
+        overslept. Kojirō sent out servants to retrieve Musashi, who ate a full breakfast, taking his time. In some
+        variants
+        of the tale, Musashi intentionally arrives late as a sign of disrespect. As he sailed over the Kanmon Straits,
+        Musashi carved a crude oversized bokken from one of the ship's oars with his knife, making an improvised wooden
+        sword, possibly to help wake himself up. Upon his arrival, an irritated Kojirō chided Musashi's lateness and
+        dramatically threw his scabbard into the sea, as a sign that he would not stop and would fight to the death.<br>
+        Musashi
+        responded with a taunt of his own, saying that Kojirō clearly wasn't confident in himself if he thought he'd
+        never
+        get a chance to use a fine scabbard again.
+        Gorinto dedicated to Sasaki Kojiro in Musashi Temple (Ohara).<br><br>
+
+        The two circled each other, and Kojirō leaped toward Musashi with his trademark overhead strike. Musashi, too,
+        jumped and swung his weapon with a shout, and the two sword strokes met. Musashi's headband fell off, sliced by
+        Kojirō's sword, but somehow, only the headband was cut rather than Musashi's skull. Musashi's strike, meanwhile,
+        had
+        struck true, cleaving Kojirō's skull.</p>
+
+    <h2 id="weapons-skills">4. Weapons and Skills Possessed by a Samurai</h2>
+    <img src="{% static 'weapons.jpg' %}" width=100%><br><br>
+
+
+    <p>Samurai employed a range of weapons such as bows and arrows, spears and guns, but their main weapon and symbol
+        was the sword, known as katana, short swords, known as wakizashi, and
+        knives, known as tanto. The katana are famous worldwide for their unique balance
+        between deadly efficiency and beauty. The Samurai were supposed to lead their lives according to the ethic code
+        of bushido ("the way of the warrior"). Under bushido, a samurai was required to learn seven martial arts:
+        archery, the spear, fencing, horse riding, military strategy, use of firearms and techniques of jujutsu.</p>
+</div>
+
+<script>
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        element.scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+
+<div class="sidebar">
+    <a href="{% url 'japanese culture with profile' %}">
+        <img src="{% static 'japanese_culture.jpg' %}" alt="Japanese Culture"> Japanese Culture
+    </a>
+    <a href="{% url 'modern japan with profile' %}">
+        <img src="{% static 'modern_japan_sidebar.jpg' %}" alt="Modern Japan"> Modern Japan
+    </a>
+    <a href="{% url 'japanese history with profile' %}">
+        <img src="{% static 'Japanese_History.jpg' %}" alt="Japanese History"> Japanese History
+    </a>
+    <a href="{% url 'emperors' %}">
+        <img src="{% static 'Japanese_Emperors.jpg' %}" alt="Emperors"> Emperors
+    </a>
+    <a href="{% url 'shogunates' %}">
+        <img src="{% static 'Shogun.jpg' %}" alt="Shogunate"> Shogunates
+    </a>
+    <a href="{% url 'ninjas' %}">
+        <img src="{% static 'ninja.jpg' %}" alt="Ninjas"> Ninjas
+    </a>
+</div>
+
+<nav>
+    <a href="{% url 'about japan with profile' %}">Home</a>
+    <a href="{% url 'profile page' %}">Profile</a>
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{% url 'about japan' %}">
+        <button type="submit" class="nav-link-button">Logout</button>
+    </form>
+</nav>
 </body>
 </html>
-
-#TO DO... samurai overview page with redirect links to other pages

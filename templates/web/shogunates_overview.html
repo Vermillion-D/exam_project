@@ -1,12 +1,261 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shogunates</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('{% static 'japanese_history_background.jpg' %}'), url('{% static 'japanese_history_background.jpg' %}');
+            background-position: left center, right center;
+            background-size: 65% 100%;
+            background-repeat: no-repeat, no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 38%;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .list-item:hover {
+            color: hotpink;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 8%;
+            height: 5%;
+            top: 10%;
+            right: 50px;
+            transform: translateY(-50%);
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #0B0C10;
+            font-weight: bold;
+        }
+
+        .sidebar img {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        .ul-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        ul {
+            width: fit-content;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .nav-link-button {
+            color: black;
+            font-size: 1rem;
+            background-color: transparent;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-link-button:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
 </head>
 <body>
+<div class="container">
+    <h1>Shogunates</h1>
+    <h3>Welcome to the page about Shogunates. Here, you'll find information about the military governments of feudal
+        Japan.</h3>
+    <div class="content">
+        <div class="ul-container">
+            <ul>
+                <li class="list-item" onclick="scrollToSection('introduction')">1. Introduction to Shogunates</li>
+                <li class="list-item" onclick="scrollToSection('purpose')">2. Shoguns
+                </li>
+                <li class="list-item" onclick="scrollToSection('shoguns of japan')">3. Shoguns of Japan Timeline
+                </li>
+                <li class="list-item" onclick="scrollToSection('kamakura')">4. Kamakura Period: Shogun rule</li>
+                <li class="list-item" onclick="scrollToSection('minamoto')">5. Minamoto no Yoritomo</li>
+                <li class="list-item" onclick="scrollToSection('minamoto clan')">6. The Minamoto Clan</li>
+            </ul>
+        </div>
+    </div>
 
+    <h2 id="introduction">1. Introduction</h2>
+    <p>his article discusses how the shoguns came into existence in Japan and how they destabilised the centralised
+        power of the Emperor to become the rulers of medieval Japan. It also looks at how society was organised under
+        them, and what led to their decline.</p>
+
+    <h2 id="purpose">2. Introduction to Shoguns</h2>
+    <p>As the Emperor's power started to wane in Japan, a new class of ruler came into existence: the shogun. A military
+        commander, the shogun had control over armies of warriors, including the intimidating samurai, and were able to
+        gain control over Japan and install a feudal system.</p>
+
+    <h2 id="shoguns of japan">3. Shoguns of Japan Timeline</h2>
+    <p>The title of shogun in Japan meant a military leader equivalent to general, and at various times in the first
+        millennium shoguns held temporary power, but it became a symbol of military control over the county. The
+        establishment of the shogunate (or bakufu) at the end of the twelfth century saw the beginning of samurai
+        control of Japan for 700 years until the Meiji Restoration in the middle of the nineteenth century.</p>
+
+    <h2 id="kamakura">4. Kamakura Period: Shogun rule</h2>
+    <p> The Kamakura Period in Japan lasted from 1192 to 1333, bringing with it the emergence of shogun rule. Japanese
+        warlords, known as shoguns, claimed power from the hereditary monarchy and their scholar-courtiers, giving the
+        samurai warriors and their lords' ultimate control of the early Japanese empire. Society, too, changed
+        radically, and a new feudal system emerged.<br><br>
+
+        Along with these changes came a cultural shift in Japan. Zen Buddhism spread from China as well as a rise in
+        realism in art and literature, favored by the ruling warlords of the time. However, cultural strife and
+        political divides eventually led to the shogunate rulership's downfall and a new imperial rule took over in
+        1333. </p>
+
+    <h2 id="minamoto">5. Minamoto no Yoritomo</h2>
+    <p>The Genpei War (1180-1185 CE) saw the victory of the Minamoto clan over the Taira, and the leader of the former
+        was Minamoto no Yoritomo, who thus became the most powerful military leader in Japan. Yoritomo made himself the
+        first shogun, in effect military dictator, of Japan, a position he would hold from 1192 CE to 1199 CE. He would,
+        therefore, be the first shogun of the Kamakura Shogunate.<br><br>
+
+        <b>Technically, the emperor was above the shogun, but in practice, it was the reverse as whoever controlled the
+            army also controlled the state.</b><br><br>
+
+        The position of shogun was the first to offer an alternative system of government to that of the Japanese
+        imperial court. The title of shogun or 'military protector' had been used before (seii tai shogun) but had only
+        been a temporary title for military commanders on campaign against the Ezo/Emishi (Ainu) in the still-disputed
+        territory in the north of Japan during the 8th century CE.<br> In that context, the title shogun translated as
+        'barbarian-subduing generalissimo.' The title of shogun was actually first resurrected by Yoritomo's cousin,
+        Minamoto Yoshinaka (1154-1184 CE), who commanded the clan's forces in Heiankyo in 1183 CE, although he did not
+        receive it from the emperor, as was the tradition.</p>
+
+    <h2 id="minamoto clan">6. The Minamoto Clan</h2>
+    <p>The Minamoto Clan was an extended family group which dominated Japanese government and the imperial court in the
+        12th and 13th centuries CE. The clan famously defeated their arch rivals the Taira in the Genpei War of
+        1180-1185 CE and included such famous figures as Minamoto no Yoritomo, Japan's first shogun ruler.<br><br>
+
+        <b>Japan's Clan System</b><br><br>
+
+        From the 9th century CE in Japan, the process known as 'dynastic shedding' removed individuals from the dynastic
+        lineage because the royal family became too large and too costly to maintain. With emperors having as many as 50
+        children, even direct descendants were removed from the royal line and given one of two family names: Minamoto
+        (aka Minamoto-Shi or Genji) or Taira (aka Hei-Shi or Heike).<br> The Minamoto name was first given as a surname
+        to
+        the children removed from the direct line of descent of Emperor Saga (r. 809-823 CE). The name Minamoto or Genji
+        translates as 'spring' or 'fount'. Eventually, the family group expanded as successive emperors awarded the
+        title name so that there were many different branches, for example, descendants of Emperor Seiwa (r. 858-876 CE)
+        were known as 'Seiwa Genji'.</p>
+
+</div>
+
+<script>
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        element.scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+
+<div class="sidebar">
+    <a href="{% url 'japanese culture with profile' %}">
+        <img src="{% static 'japanese_culture.jpg' %}" alt="Japanese Culture"> Japanese Culture
+    </a>
+    <a href="{% url 'modern japan with profile' %}">
+        <img src="{% static 'modern_japan_sidebar.jpg' %}" alt="Modern Japan"> Modern Japan
+    </a>
+    <a href="{% url 'japanese history with profile' %}">
+        <img src="{% static 'Japanese_History.jpg' %}" alt="Japanese History"> Japanese History
+    </a>
+    <a href="{% url 'emperors' %}">
+        <img src="{% static 'Japanese_Emperors.jpg' %}" alt="Emperors"> Emperors
+    </a>
+    <a href="{% url 'samurai' %}">
+        <img src="{% static 'samurai.jpg' %}" alt="Samurai"> Samurai
+    </a>
+    <a href="{% url 'ninjas' %}">
+        <img src="{% static 'ninja.jpg' %}" alt="Ninjas"> Ninjas
+    </a>
+</div>
+
+<nav>
+    <a href="{% url 'about japan with profile' %}">Home</a>
+    <a href="{% url 'profile page' %}">Profile</a>
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{% url 'about japan' %}">
+        <button type="submit" class="nav-link-button">Logout</button>
+    </form>
+</nav>
 </body>
 </html>
-
-##TO DO... shogunate overview page with redirect links to other pages

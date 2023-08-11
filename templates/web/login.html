@@ -1,12 +1,129 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 125vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url("{% static 'Gate_Background.jpeg' %}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            color: peachpuff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+            padding-bottom: 55px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .login-container {
+            max-width: 250px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: transparent;
+        }
+
+        .login-container input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container .login-button {
+            width: 100%;
+            padding: 10px;
+            background-color: transparent;
+            color: peachpuff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+        }
+
+        .login-container .login-button:hover {
+            color: hotpink;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: peachpuff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
 </head>
 <body>
+<h1>Login</h1>
+
+<div class="login-container">
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        {{ form.password.label_tag }}
+        {{ form.password }}
+        <button type="submit" class="login-button">Login</button>
+    </form>
+</div>
+
+
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+
+<nav>
+    <a href="{% url 'about japan' %}">Home</a>
+    <a href="{% url 'sign up page' %}">Create Profile</a>
+</nav>
 
 </body>
 </html>
 
-#TO DO... Login page, obviously.
+

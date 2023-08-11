@@ -1,12 +1,112 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 135vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url("{% static 'Gate_Background.jpeg' %}");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            color: peachpuff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+            padding-bottom: 55px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .signup-container {
+            max-width: 250px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: transparent;
+        }
+
+        .signup-container input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .signup-container .signup-button {
+            width: 100%;
+            padding: 10px;
+            background-color: transparent;
+            color: peachpuff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+        }
+
+        .signup-container .signup-button:hover {
+            color: hotpink;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: peachpuff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
 </head>
 <body>
+<h1>Sign Up</h1>
+<div class="signup-container">
+    <form method="post" action="{% url 'sign up page' %}" class="signup-container" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="signup-button">Sign Up</button>
+</form>
+
+</div>
+<nav>
+    <a href="{% url 'about japan' %}">Home</a>
+    <a href="{% url 'login page' %}">Login</a>
+</nav>
 
 </body>
 </html>
-
-#TO DO... sign up page, obviously.

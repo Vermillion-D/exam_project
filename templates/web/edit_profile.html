@@ -1,0 +1,22 @@
+{% extends profile_page.html %}
+
+{% block content %}
+<div class="profile-edit">
+    <div class="form-container">
+        <form method="post" action="{% url 'edit profile' %}">
+            {% csrf_token %}
+            {{ edit_form.username.label_tag }}
+            {{ edit_form.username }}
+
+            {{ edit_form.email.label_tag }}
+            {{ edit_form.email }}
+
+            {{ edit_form.password.label_tag }}
+            {{ edit_form.password }}
+
+            <div class="edit-button-container">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

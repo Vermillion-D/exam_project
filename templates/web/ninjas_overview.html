@@ -1,12 +1,340 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninjas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('{% static 'japanese_history_background.jpg' %}'), url('{% static 'japanese_history_background.jpg' %}');
+            background-position: left center, right center;
+            background-size: 65% 100%;
+            background-repeat: no-repeat, no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            width: 38%;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .list-item:hover {
+            color: hotpink;
+        }
+
+        p {
+            font-size: 1.15rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 8%;
+            height: 5%;
+            top: 10%;
+            right: 50px;
+            transform: translateY(-50%);
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #0B0C10;
+            font-weight: bold;
+        }
+
+        .sidebar img {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .ul-container {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        ul {
+            width: fit-content;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .nav-link-button {
+            color: black;
+            font-size: 1rem;
+            background-color: transparent;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .nav-link-button:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+    </style>
 </head>
 <body>
+<div class="container">
+    <h1>Ninjas</h1>
+    <h3>Welcome to the page about Ninjas. Here, you'll find information about the secretive and skilled covert agents of
+        feudal Japan.</h3>
+    <div class="content">
+        <div class="ul-container">
+            <ul>
+                <li class="list-item" onclick="scrollToSection('introduction')">1. Introduction to Ninjas</li>
+                <li class="list-item" onclick="scrollToSection('purpose')">2. Ninjas History
+                </li>
+                <li class="list-item" onclick="scrollToSection('supernatural')">3. Why were the ninjas feared</li>
+                <li class="list-item" onclick="scrollToSection('weapons-skills')">4. Ninjas most used weapons and
+                    skills
+                </li>
+            </ul>
+        </div>
+    </div>
 
+    <h2 id="introduction">1. Introduction to Ninjas</h2>
+    <p>Ninja (忍者, aka shinobi, meaning "those who act in stealth") were a type of warrior who specialized in
+        unconventional warfare such as infiltration, sabotage and assassination during the age of the samurai. Ninja
+        employed deception and forgery tactics to take opponents out by surprise. Due to their unorthodox methods, which
+        contradicted the way of the warrior (bushido), the ninja were not credited with the same honor as the
+        samurai.<br><br>
+        <img src="{% static 'ninjutsu.jpg' %}">
+
+        The diverse range of skills practiced by the ninja is called ninjutsu - the art of stealth - and includes
+        training in armed combat, weapon techniques, military strategy, meteorology, geometry and breathing synthesis.
+        Ninjutsu was passed down through generations within families or directly from teacher to a selected one or few
+        disciples. This secrecy in part explains why little factual information exists about the ninja, giving rise to
+        lots of stereotyping of them both within and outside of Japan.</p>
+
+    <h2 id="purpose">2. Ninjas History</h2>
+    <p>As early as the 11th century, the inhabitants of Iga and Koka gained a reputation for their skills in
+        unconventional warfare. Close to the political center Kyoto, yet distinctly remote due to their rugged terrains,
+        Iga and Koka presented an ideal hideout location for refugees, bandits and losing parties of battles. Many ninja
+        families lived here within autonomously governed communities, developing their martial skills for
+        self-defense.<br><br>
+
+        During the age of the warring states in the 15th and 16th centuries, many warlords would hire the ninja of Iga
+        and Koka as mercenaries for their set of unique skills in facilitating the conquest of castles and victories in
+        battles. These were the heydays of the ninja.<br><br>
+
+        Once peace was established in the 17th century, the ninja were mainly employed by the Tokugawa Shogunate to spy
+        on the various regional lords and to guard Edo Castle. During these times, the ninja became greatly romanticized
+        in popular culture, such as kabuki, which led to inaccuracies in the common perception of them. The stereotypes
+        were subsequently exported to the West and further developed to entertain audiences there.<br></p>
+
+    <h2 id="supernatural">3. Ninja “Supernatural” Powers</h2>
+
+    <img src="{% static 'superpowers.jpg' %}">
+    <p>The shinobi were said to have outright supernatural powers such as turning invisible, teleportation, manipulation
+        of the elements, walking on water, and shapeshifting. Of course, these things fall squarely within the realm of
+        fantasy, but the clever use of ninja tools and guerilla tactics helped to create the illusion of supernatural
+        abilities. Shinobi, being masters of misdirection, had it in their best interest to allow such stories to
+        propagate.<br><br>
+
+        Mention is made in some of the older chronicles about the use of mudras, or hand seals, along with mantras, or
+        chants to create magical effects. These were mostly intended for a psychological boost, i.e. to trigger a
+        certain mental state accessed through meditation, but they were referred to as outright magic in the manuals as
+        a
+        form of misdirection. Believing that a shinobi actually possessed supernatural powers was a way to increase the
+        mystique behind these figures. It also goes back to the idea of disguise: one disguise a shinobi could undertake
+        was that of a yamabushi. These wilderness-dwelling monks were said to practice an esoteric branch of Buddhism
+        known as Shingon, which made use of hand signs and the like as meditative aids.<br><br>
+
+        Other lore in the shinobi manuals references Wu Xing, the classical Chinese elemental system: wood, fire, earth,
+        metal, and water. Each element had certain character traits associated with it, a different direction, time of
+        day, parts of the body, etc. The different elements also interacted with one another via a nourishing and
+        overcoming cycle, as demonstrated in the diagram above. Shinobi were encouraged, even if they did not fully
+        believe in such things, to learn these associations to better gauge how a given target who did adhere to them
+        might act and exploit certain weaknesses.</p>
+
+    <h2 id="weapons-skills">4. Weapons and skills Possessed by a Ninja</h2>
+    <p>Ninjitsu has incorporated countless other weapons, but many have been lost because they were never recorded.
+        There are many that people know about even today.<br><br>
+
+        Let’s look a little closer at the primary weapons used in the art of Ninjutsu:
+        <b>Katana: The Sword</b><br>
+        <img src="{% static 'katana.jpg' %}" width=100%><br><br>
+
+        The art of sword fighting taught in Ninjutsu falls under Kenjutsu. There are several types of swords used.<br>
+
+        The Kata is a long, curved sword with a single-bladed edge. It was used primarily for slashing and cutting, and
+        it was a versatile weapon. Samurai also used the katana, but ninjas often carried a shorter and straighter
+        version called a ninjato.<br><br>
+
+        Wooden swords (Bokkens) or bamboo swords (Shinai) can be found among practising novices. But the most iconic
+        ones are the Katanas. These are curved and thin metal swords for slicing up the opponent<br><br>
+
+        Nodachi is a large and heavy sword that is effective against enemies on horseback. The short counterpart of the
+        Nodachi is the Wakazashi, which is a short sword for attacking nearby enemies<br><br>
+
+        <b>Bo and Jo Staffs: Long a short wooden staffs</b>
+
+        The stick in general is incorporated under the Bojutsu techniques. Thicker sticks, or Staffs, are effective
+        means of countering swords. These include the Hanbo, Jo, and Bo with lengths of 3, 4, and 6 feet
+        respectively.<br>
+
+        Sticks, as in Escrima, are better used as defensive weapons and are made from wood or bamboo.
+
+        <br><br><b>Tanto: A Shorter Blade</b><br>
+        <img src="{% static 'tanto.jpg' %}" width=100%><br><br>
+
+        Apart from the sword, there are many blades and knives used in ninjitsu. The dagger or the tanto gained
+        popularity for its compact size which allowed it to be hidden.<br><br>
+        <b>The Shuriken: The Throwing Star</b>
+
+        No weapon is as synonymous with the ninja as the shuriken. These are sharp and compact throwing weapons.
+
+        Shuriken are small, star-shaped or flat, multi-pointed throwing weapons. They were used primarily to distract or
+        disorient opponents, but could also be used for cutting or puncturing targets. Shuriken are easy to conceal and
+        carry, making them an ideal weapon for ninjas.
+        A board showing 14 different types of bladed throwing weapon, or Shuriken.
+        <br><br><b>The Sai: The Pronged Weapon</b><br>
+        <img src="{% static 'Sai-Sword.jpg' %}" width=100%><br><br>
+
+        This is where Ninjitsu gets more creative. The Sai is a traditional weapon with three prongs and the ninja can
+        use it to block swords and trap the opponent. It is used in pairs whereas the Jutte is used as a singular
+        weapon.
+        <br><br><b>Kusarigama: The Chain and Sickle</b><br>
+        <img src="{% static 'kusarigama-001.jpg' %}" width=100%><br><br>
+
+        Nothing’s more painful than being hit by a chain. The Kusari Fundo takes it a step further and adds weights at
+        its ends. The Kusarigama is the variation that also combines a scythe for maximum damage.
+        <br><br><b>The Rope</b>
+
+        The rope is a fundamental part of ninjitsu and is covered in Hojojutsu. The rope is mainly used to trap and
+        disarm opponents. Rope-based weapons include the Kyoketsu-Shoge, which also uses a dart.
+
+        Other than these, ninjitsu incorporates many techniques that are used to slow down opponents or blind them
+        temporarily. Ninjas have used them to escape for centuries.
+        <br><br><b>Tekko-Kagi: Hand Claws</b><br>
+        <img src="{% static 'tekkokagi.jpg' %}" width=100%><br><br>
+
+        Tekko-Kagi are metal bands with sharpened spikes worn on the hands. They were used primarily for climbing, but
+        could also be employed as a weapon for slashing or grappling in close combat.
+
+        These were made famous by the epic fight scene in American Ninja between Michale Dudikoff’s heroic Ninja, and
+        the dastardly Black Star Ninja. The scene below also has every possible type of Ninja weapon plus some dubious
+        others like Lasers!
+        <br><br><b>Caltrops or Tetsubishi</b>
+
+        Caltrops are small, four-pointed spikes that were scattered on the ground to impede or injure pursuers. Ninjas
+        would use these to slow down enemies, damage their feet, or even puncture the hooves of pursuing horses.
+        <br><br><b>Metsubshi: Blinding Powders</b>
+
+        Metsubushi were small containers filled with blinding powder, such as ground pepper or ashes. Ninjas would throw
+        these at their opponents to create a smokescreen, disorient enemies, or facilitate a quick escape.
+        <br><br><b>Fukiya: The Blow-Gun</b><br><br>
+
+        The blowgun was a simple, lightweight, and easily concealed weapon used by ninjas for shooting poisoned darts or
+        needles from a distance. It was an effective tool for silent assassinations and likely was used in non-combat
+        situations.
+        <br><br><b>Kunai: The Dagger type Tool</b><br>
+        <img src="{% static 'kunai-ninja-weapon.jpg' %}" width=100%><br><br>
+
+        A kunai is a multipurpose tool resembling a wide, short-bladed dagger. It was used for digging, prying, and
+        climbing, but could also be used as a weapon in close-quarter combat or as a makeshift throwing weapon.</p>
+</div>
+
+<script>
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        element.scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+
+<div class="sidebar">
+    <a href="{% url 'japanese culture with profile' %}">
+        <img src="{% static 'japanese_culture.jpg' %}" alt="Japanese Culture"> Japanese Culture
+    </a>
+    <a href="{% url 'modern japan with profile' %}">
+        <img src="{% static 'modern_japan_sidebar.jpg' %}" alt="Modern Japan"> Modern Japan
+    </a>
+    <a href="{% url 'japanese history with profile' %}">
+        <img src="{% static 'Japanese_History.jpg' %}" alt="Japanese History"> Japanese History
+    </a>
+    <a href="{% url 'emperors' %}">
+        <img src="{% static 'Japanese_Emperors.jpg' %}" alt="Emperors"> Emperors
+    </a>
+    <a href="{% url 'shogunates' %}">
+        <img src="{% static 'Shogun.jpg' %}" alt="Shogunate"> Shogunates
+    </a>
+    <a href="{% url 'samurai' %}">
+        <img src="{% static 'samurai.jpg' %}" alt="Samurai"> Samurai
+    </a>
+</div>
+
+<nav>
+    <a href="{% url 'about japan with profile' %}">Home</a>
+    <a href="{% url 'profile page' %}">Profile</a>
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{% url 'about japan' %}">
+        <button type="submit" class="nav-link-button">Logout</button>
+    </form>
+</nav>
 </body>
 </html>
-
-#TO DO... ninjas overview page with redirect links to other pages

@@ -1,13 +1,304 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Japan</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: lightsteelblue;
+            background-image: url('{% static 'modern_japan.jpg' %}');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 8%;
+            height: 5%;
+            top: 10%;
+            right: 50px;
+            transform: translateY(-50%);
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: peachpuff;
+            font-weight: bold;
+        }
+
+        .sidebar img {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+        }
+
+        .container {
+            width: 38%;
+            margin: 0 auto;
+            padding: 1rem;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        h1 {
+            color: peachpuff;
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: peachpuff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.3rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        h3 {
+            color: peachpuff;
+            line-height: 1.6;
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+
+        h4 {
+            color: black;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: peachpuff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .list-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .list-item:hover {
+            color: hotpink;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .ul-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+
+        }
+
+        ul {
+            width: fit-content;
+        }
+
+        li {
+            font-size: 1.2rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        .temple-image {
+            width: 255px;
+            height: 160px;
+            align-self: flex-end;
+            padding-left: 125px;
+        }
+
+
+    </style>
 </head>
 <body>
+<div class="container">
+    <h1>Modern Japan</h1>
+    <h3>Welcome to the page about Modern Japan. Here, you'll find information about various aspects of Japan's
+        contemporary culture, economy, and society.</h3>
+    <div class="content">
+        <div class="ul-container">
+            <ul>
+                <li class="list-item" onclick="scrollToSection('introduction')">1. Introduction to Modern Japan</li>
+                <li class="list-item" onclick="scrollToSection('Temples')">2. Japanese Temples
+                </li>
+                <li class="list-item" onclick="scrollToSection('Sushi')">3. Sushi</li>
+                <li class="list-item" onclick="scrollToSection('Mt. Fuji')">4. Mt. Fuji</li>
+            </ul>
+        </div>
+        <img src="{% static 'temple_art.jpg' %}" class="temple-image">
+    </div>
+    <h2 id="introduction">1. Introduction to Modern Japan</h2>
+    <p>This section provides a brief introduction to Modern Japan, its history, and its place in the world
+        today.<br><br>
 
+
+        With one of the longest and most complex histories of any country on earth, Japan’s colors, sights, and
+        traditions have fascinated visitors for thousands of years. As a country, it’s a fascinating look at
+        old-meets-new; Japan holds strong to its traditions and roots while still making room for innovation and new
+        trends.<br><br>
+
+        Japan is known for everything from onsen hot springs and kabuki baths (dating to the 6th and 16th centuries,
+        respectively) to all-night neon-lit dance parties, anime, and sushi boat restaurants, all of which are decidedly
+        more modern.
+        Beautiful landscape of Kitanomaru Park with cherry blossom trees<br><br></p>
+
+    <img src="{% static 'Kitanomaru Park.jpg' %}" width="730" height="360"><br>
+    <h4>Kitanomaru Park, Tokyo</h4><br><br>
+
+    <p> In addition to culture, arts, and food, Japan is one of the world’s most beautiful island chains. Massive
+        mountainscapes and lakes dominate the landscape in the inner part of Honshu, the main island, while the coastal
+        areas are dotted with beautiful beaches, bamboo forests, and elaborate gardens filled with cherry trees.<br><br>
+
+        Use this list of things that Japan is known for to help you build excitement for visiting one of the most
+        culturally rich destinations in the world.<br><br>
+
+    </p>
+
+    <h2 id="Temples">2. Japanese Temples</h2>
+    <p>Japan is famous for its numerous, intricately designed temples. Even the smallest village will have a temple in
+        front, and many homes have their own temples, too.<br><br>
+
+        Most of the famous temples in Japan are far more than just one building. Usually, there’s an inner temple, which
+        will have a designated area for worship and may not be open to the public. Along with the inner temple, most
+        temple complexes include several buildings, gates flanked by protective statues, beautiful gardens, and pagodas
+        and ponds. You could easily spend a few hours exploring some of the country’s largest temples, like those around
+        Nara (near Osaka) or Kyoto’s Todai-ji.<br><br></p>
+    <img src="{% static 'tunnel_of_torii_gate.jpeg' %}" width="730" height="360"><br>
+    <h4>Tunnel of Torii Gate in Fushimi-inari Taisha, Kyoto</h4>
+
+    <p>There are many different religions and religious sects in Japan. In Kyoto, which has more than 2,000 temples
+        alone, one of the most beautiful sights is the Fushimi-inari Taisha temple, a huge complex most famous for its
+        path through the Tunnel of Torii Gate. It’s a Shinto temple (which is actually referred to as a shrine).<br><br>
+
+        It’s easy to tell the difference between a Shinto shrine and a Buddhist temple, even from afar. Aside from the
+        fact that Buddhist temples will usually have a Buddha in a place of honor, Shinto shrines tend to feature the
+        color red and often have animal-themed statues guarding the gates. Buddhist temples have human-esque warrior
+        figures, called Nio, that protect their gates. Two good examples of this are the Nio outside Shitennoji Temple
+        in Osaka.<br><br>
+    </p>
+
+    <h2 id="Sushi">3. Sushi</h2>
+    <p>Japan is known for many famous foods, but its most well-known dish is sushi. Sushi goes back centuries—best
+        guesses are that it originated around the year 400 C.E. By the year 1000 C.E., sushi had become a staple of
+        formal Japanese cuisine.</p><br><br>
+
+    <img src="{% static 'Delicious-sushi-rolls-set.jpg' %}" width="730" height="360">
+
+    <h4>Sushi</h4>
+
+    <p>In the 1800s, when Japan’s cities grew and workers needed a quick and affordable lunch, sushi changed, becoming
+        something made quickly at food carts rather than a luxurious item reserved just for society’s upper echelon.
+        Today, sushi options run the gambit, from speedy sushi boat restaurants to more elegant options with rare fish
+        and expert sushi chefs preparing the dishes.<br><br>
+
+        Sushi restaurants usually serve everything from hand rolls to nigiri (fish and rice only) to sashimi (fish
+        only). Sushi doesn’t have to be raw, and it doesn’t even have to be fish—egg, tofu, and cooked options are
+        readily available in most places.<br><br></p>
+
+    <img src="{% static 'Dotonbori_district_Osaka.jpg' %}" width="730" height="360"><br>
+
+    <h4>Dotonbori District, Kyoto</h4><br><br>
+
+    <p> The best way to explore all the cultural, historical, and natural elements that Japan is known for is on a
+        luxury cruise to Asia. On a cruise to Japan, you’ll visit multiple destinations in the country, each with its
+        own unique flair.
+    </p>
+    <h2 id="Mt. Fuji">4. Mt. Fuji</h2>
+
+    <img src="{% static 'Mt_Fuji.jpg' %}" width="730" height="360">
+
+    <h4> Mt. Fuji</h4>
+
+    <p>The snow-covered volcano of Mount Fuji is an everlasting symbol of Japan. The mountain dominates the landscape
+        and has served as the muse of many Japanese artists over the centuries.<br><br>
+
+        While hiking Mount Fuji is difficult, to say the least, there are many ways to see the Japanese mountain and
+        admire the views that have inspired creatives throughout Japan’s history.<br><br>
+
+        The Komagatake Ropeway over Lake Ashi carries guests to the top of Mount Komagatake, which offers excellent
+        views of Mount Fuji. Fuji itself is often shrouded in fog, which can make it even more beautiful in photos. The
+        nearby Mt. Fuji World Heritage Center is a great stop for people who want to learn more about the cultural
+        significance and natural history of the renowned Japanese landmark.</p>
+
+</div>
+
+<script>
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        element.scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+
+<div class="sidebar">
+    <a href="{% url 'japanese culture' %}">
+        <img src="{% static 'japanese_culture.jpg' %}" alt="Japanese Culture"> Japanese Culture
+    </a>
+    <a href="{% url 'japanese history' %}">
+        <img src="{% static 'Japanese_History.jpg' %}" alt="Japanese History"> Japanese History
+    </a>
+</div>
+
+<nav>
+    <a href="{% url 'about japan' %}">Home</a>
+    <a href="{% url 'login page' %}">Login</a>
+    <a href="{% url 'sign up page' %}">Create Profile</a>
+</nav>
 </body>
 </html>
-
-#TO DO... Main modern japan page with redirect link to japanese culture page if no account and
-#redirect links to all other pages if account

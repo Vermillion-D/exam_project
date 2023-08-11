@@ -1,0 +1,402 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Japan</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: lightsteelblue;
+            background-image: url('{% static 'japanese_culture.jpg' %}');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+            background-attachment: fixed;
+            color: white;
+        }
+
+        .sidebar {
+            position: fixed;
+            width: 8%;
+            height: 5%;
+            top: 10%;
+            right: 50px;
+            transform: translateY(-50%);
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: peachpuff;
+            font-weight: bold;
+        }
+
+        .sidebar img {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100px;
+            height: 100px;
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+        }
+
+        .container {
+            width: 38%;
+            margin: 0 auto;
+            padding: 1rem;
+            color: white;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        h1 {
+            color: peachpuff;
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            color: peachpuff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+        }
+
+        p {
+            line-height: 1.6;
+            color: black;
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        h3 {
+            color: peachpuff;
+            line-height: 1.6;
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+            text-align: center;
+        }
+
+        h4 {
+            color: black;
+            font-size: 0.8rem;
+            text-align: right;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: peachpuff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .nav-link-button {
+            color: peachpuff;
+            font-size: 1rem;
+            background-color: transparent;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-link-button:hover {
+            background-color: transparent;
+            color: hotpink;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .list-item {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .list-item:hover {
+            color: hotpink;
+        }
+
+        .content {
+            display: flex;
+        }
+
+        .ul-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+
+        }
+
+        ul {
+            width: fit-content;
+        }
+
+        li {
+            font-size: 1.2rem;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 1);
+        }
+
+        .tree-image {
+            width: 270px;
+            height: 160px;
+            align-self: flex-end;
+            padding-left: 65px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Japanese Culture</h1>
+    <h3>Welcome to the page about Japanese Culture. Here, you'll find information about various aspects of Japan's rich
+        cultural heritage.</h3>
+    <div class="content">
+        <div class="ul-container">
+            <ul>
+                <li class="list-item" onclick="scrollToSection('introduction')">1. Introduction to Japanese Culture</li>
+                <li class="list-item" onclick="scrollToSection('Hatsu Miyamairi')">2. Hatsu Miyamairi</li>
+                <li class="list-item" onclick="scrollToSection('matsuri')">3. Matsuri Culture
+                </li>
+                <li class="list-item" onclick="scrollToSection('shinto')">4. Shinto Religion</li>
+                <li class="list-item" onclick="scrollToSection('Anime-Manga')">5. Anime and Manga culture</li>
+            </ul>
+        </div>
+        <img src="{% static 'Sakura_tree.jpg' %}" class="tree-image">
+    </div>
+    <h2 id="introduction">1. Introduction to Japanese Culture</h2>
+    <p>Japanese culture is ancient and is filled with rites and traditions to honor the family. Because Japan is an
+        island country, it was able to moderate the influence of other cultures for centuries. This allowed a
+        distinct
+        culture and heritage to develop for the beautiful Land of the Rising Sun.<br><br>
+
+        With important rites of passage, festivals of celebration, and unique dress and style, details from the
+        lives of
+        your Japanese ancestors will brighten your family stories.</p>
+
+    <h2 id="Hatsu Miyamairi">2. Hatsu Miyamairi: a Cultural Rite of Passage</h2>
+    <p>Hatsu Miyamairi, or Omiyamairi, meaning “shrine visit,” is a precious family tradition for the close loved
+        ones
+        of a newborn baby. Parents or grandparents bring the baby to a Shinto shrine for this special rite of
+        passage.
+        Traditionally done 31 days after the birth of a boy and 33 days after the birth of a girl, this Japanese
+        Shinto
+        tradition shows gratitude for the birth of the child.<br><br></p>
+    <img src="{% static 'Hatsu_Miyamairi.jpg' %}" width="730" height="360">
+
+    <p>Babies are dressed in a white kimono or special white dress and are most often carried by their grandmother.
+        The
+        shrine priest says a prayer for the health and happiness of the newborn.</p><br><br>
+
+    <p><b>Kanreki Rite of Passage</b></p><br><br>
+
+    <p>In many cultures, people don’t see getting older as something to celebrate. In Japan, turning 60 years old is
+        a time of celebration!<br><br>
+
+        Kanreki means “return” and “calendar,” as in returning to your beginning cycle; a person turning 60 years
+        old has completed one cycle in traditional calendars.<br><br>
+
+        To mark kanreki, the celebrant man or woman dresses in a vibrant red vest and hat, is seated on a red
+        cushion, and is given a white fan.<br> Food, gifts, and decorations all have the red color theme to
+        reinforce
+        the hope that the birthday person will have a long and healthy life in a “second childhood.”</p><br><br>
+
+    <h2 id="matsuri">3. Matsuri Culture</h2>
+    <p>The Japanese term "matsuri" (festival, written as 祭 or 祭り) refers to ceremonies or Shinto rituals
+        worshipping Shinreikon (the spirit of God). It is also called Sairei (rites and festivals) or Saishi
+        (religious service). Moreover, events associated with it is also called 'matsuri' in some cases.<br><br>
+
+        There are no specific matsuri days for all of Japan; dates vary from area to area, and even within a
+        specific area, but festival days do tend to cluster around traditional holidays such as Setsubun or Obon.
+        Almost every locale has at least one matsuri in late summer/early autumn, usually related to the rice
+        harvest.<br><br>
+
+        Festivals are often based around one event, with food stalls, entertainment, and carnival games to keep
+        people entertained. Some are based around temples or shrines, others hanabi (fireworks), and still others
+        around contests where the participants sport loin cloths.<br><br>
+
+        There are also various local festivals (e.g. Tobata Gion) that are mostly unknown outside a given
+        prefecture. It is commonly said that you will always find a festival somewhere in Japan. It is said that
+        there are more than 10,000 Matsuri festivals in all around Japan.<br><br></p>
+    <img src="{% static 'Torigoe_Matsuri-1024x600.jpg' %}" width="730" height="360"><br><br>
+
+    <p><b>Ambiguity of Japanese Traditional Matsuri Festival</b></p><br><br>
+
+    <p>Many matsuri (祭り) originated from the Ancient Shinto. Since it was called a primitive religion, shamanism,
+        animism and so on, and the target of its belief extended to shinrabansho (all things in nature), it is
+        difficult to define matsuri which is also the action.<br> It was also the essence of Japanese culture to
+        enjoy
+        gods (many deities such as guest deities, Tsukumogami [divine spirit that resided in an extremely old tool
+        or creature], and so on), Mikoto, spirit, deities, departed soul and soul without defining or discriminating
+        against them. </p>
+
+
+    <h2 id="shinto">4. Shinto Religion</h2>
+    <p>Religion in Japan is a wonderful mish-mash of ideas from Shintoism and Buddhism. Unlike in the West, religion
+        in Japan is rarely preached, nor is it a doctrine. Instead, it is a moral code, a way of living, almost
+        indistinguishable from Japanese social and cultural values.<br><br>
+
+        Japanese religion is also a private, family affair. It is separate from the state; there are no religious
+        prayers or symbols in a school graduation ceremony, for example. Religion is rarely discussed in everyday
+        life and the majority of Japanese do not worship regularly or claim to be religious.<br><br>
+
+        However, most people turn to religious rituals in birth, marriage and death and take part in spiritual
+        matsuri (or festivals) throughout the year.</p><br><br>
+
+    <p><b>Shintoism versus Buddhism</b></p><br><br>
+
+    <p>Shintoism is Japan's indigenous spirituality. It is believed that every living thing in nature (e.g. trees,
+        rocks, flowers, animals - even sounds) contains kami, or gods.<br><br>
+
+        Consequently Shinto principles can be seen throughout Japanese culture, where nature and the turning of the
+        seasons are cherished. This is reflected in arts such as ikebana (flower arranging) and bonsai, Japanese
+        garden design and the annual celebration of sakura - or cherry blossom.<br><br>
+
+        Shinto only got its name when Buddhism came to Japan by way of China, Tibet, Vietnam, and ultimately Korea.
+        Buddhism arrived in the sixth century, establishing itself in Nara. Over time Buddhism divided into several
+        sects, the most popular being Zen Buddhism.<br><br></p>
+    <img src="{% static 'zen_buddhist.jpg' %}" width="730" height="360"><br><br>
+    <p>In essence, Shintoism is the spirituality of this world and this life, whereas Buddhism is concerned with the
+        soul and the afterlife. This explains why for the Japanese the two religions exist so successfully together,
+        without contradiction. To celebrate a birth or marriage, or to pray for a good harvest, the Japanese turn to
+        Shintoism. Funerals, on the other hand, are usually Buddhist ceremonies.</p><br><br>
+
+    <h2 id="Anime-Manga">5. Anime and Manga Culture</h2>
+    <p>Manga and anime are perhaps Japan's biggest cultural export – and they make up one of the most recognizable
+        art styles on the planet.<br><br>
+        Since the nineties, when everyone in the western world was suddenly talking about Pokémon, Digimon,
+        Yu-Gi-Oh!, and Dragon Ball Z, anime has become something of a household term. Something completely
+        associated with Japan and something that has become one of the biggest cultural trends among children and
+        young adults ever since.<br><br>
+
+        Yet, the world of Japanese anime is a lot more varied and complex than we in the west might realize. 'Anime'
+        only in the west refers to Japanese animation as a whole. In Japanese culture, anime is actually a term for
+        any mass-produced animation, Japanese or non-Japanese.<br><br>
+
+        And, importantly, in Japan, anime is not just culture for kids. Rather, anime series like Neon Genesis
+        Evangelion, Attack on Titan, Death Note, and Cowboy Bebop were all hugely successful amongst adults too.
+        Indeed, many of these series were actually intended for adults – developing complex themes and plotlines and
+        presenting three-dimensional and realistic characters.<br><br></p>
+
+    <img src="{% static 'anime.jpg' %}" width="730" height="360"><br><br>
+
+    <p><b>Why Is Anime So Popular In Japan?</b></p><br><br>
+
+    <p>In the west, we associate anime with Japan and – almost – Japan with anime. It's a massive part of their
+        cultural industry – and is perhaps the country's third-largest industry. This makes it, obviously, pretty
+        mega, bringing in nearly twenty billion dollars a year.<br><br>
+
+        Yet, the success of anime across the world is one of the most amazing things about this genre. Apparently,
+        sixty percent of all animated television shows across the world come from Japan. The anime industry in China
+        is absolutely huge, whilst, in the west, various channels and services distributing anime have made it even
+        more popular.<br><br>
+
+        Over the years, channels like Cartoon Network – with Adult Swim and Toonami – and now anime streaming sites
+        such as Crunchyroll and Funimation have brought this medium to an ever-growing audience. These days, over
+        one hundred thousand people attend America's annual anime convention.<br><br></p>
+
+    <p><b>How Anime Reflects Japanese Culture</b></p><br><br>
+
+    <p>In addition to anime being an extensive global entertainment product, it is also a window to Japan since it
+        espouses various aspects of Japanese culture.<br><br>
+
+        These cultural aspects can range from language, religious ceremonies, food, clothing, art, festivities,
+        customs, and mythology to daily interactions.<br><br>
+
+        The diversity in production also reflects the vastness and heterogeneity in Japanese culture. It outlines an
+        identity crisis the country faces in which anime depicts the tension between modernism and
+        tradition.<br><br></p>
+
+    <img src="{% static 'anime-enjoyer.jpg' %}" width="730" height="360"><br><br>
+
+    <p>Anime is the technical evolution of traditional Japanese manga, which came into being during the late 19th
+        and early 20th centuries.<br><br>
+        Japanese comics are referred to as manga, or in other terms, the art which unites traditional Japanese
+        painting style (ukiyo-e) and the western comic format.<br><br>
+        Steadfast technological advancements and the popularity that followed manga paved the way for the first-ever
+        animated short films.<br>
+
+        Today, these short films are called 'animes .' And they are considered more dynamic and viewable due to
+        their universality and diversity.<br>
+
+        Furthermore, due to this dynamism, it was adopted globally and without any discrimination based on religion,
+        gender, language, or age.<br></p>
+
+</div>
+<script>
+    function scrollToSection(sectionId) {
+        const element = document.getElementById(sectionId);
+        element.scrollIntoView({behavior: 'smooth'});
+    }
+</script>
+
+<div class="sidebar">
+    <a href="{% url 'modern japan with profile' %}">
+        <img src="{% static 'modern_japan_sidebar.jpg' %}" alt="Modern Japan"> Modern Japan
+    </a>
+    <a href="{% url 'japanese history with profile' %}">
+        <img src="{% static 'Japanese_History.jpg' %}" alt="Japanese History"> Japanese History
+    </a>
+    <a href="{% url 'emperors' %}">
+        <img src="{% static 'Japanese_Emperors.jpg' %}" alt="Emperors"> Emperors
+    </a>
+    <a href="{% url 'shogunates' %}">
+        <img src="{% static 'Shogun.jpg' %}" alt="Shogunate"> Shogunates
+    </a>
+    <a href="{% url 'samurai' %}">
+        <img src="{% static 'samurai.jpg' %}" alt="Samurai"> Samurai
+    </a>
+    <a href="{% url 'ninjas' %}">
+        <img src="{% static 'ninja.jpg' %}" alt="Ninjas"> Ninjas
+    </a>
+</div>
+
+<nav>
+    <a href="{% url 'about japan with profile' %}">Home</a>
+    <a href="{% url 'profile page' %}">Profile</a>
+    <form action="{% url 'logout' %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{% url 'about japan' %}">
+        <button type="submit" class="nav-link-button">Logout</button>
+    </form>
+</nav>
+</body>
+</html>
